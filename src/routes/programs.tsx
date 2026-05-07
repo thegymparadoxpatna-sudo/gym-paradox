@@ -39,8 +39,8 @@ function Programs() {
                   </div>
                 </div>
                 <div className="md:col-span-5 [direction:ltr]">
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-primary">{p.n}</p>
-                  <h2 className="mt-3 font-display text-5xl md:text-6xl tracking-tight">{p.t}</h2>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-electric-gradient">{p.n}</p>
+                  <h2 className="mt-3 font-display text-5xl md:text-6xl tracking-[-0.03em]">{p.t}</h2>
                   <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">{p.d}</p>
                 </div>
               </article>
@@ -58,8 +58,8 @@ function CalculatorSection() {
   return (
     <section className="bg-ink border-y border-border py-24 md:py-32">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-primary">Tools</p>
-        <h2 className="mt-4 font-display text-5xl md:text-6xl tracking-tight">Know your <em className="display-italic">numbers.</em></h2>
+        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-electric-gradient">Tools</p>
+        <h2 className="mt-4 font-display text-5xl md:text-6xl tracking-[-0.03em]">Know your <em className="display-italic text-electric-gradient">numbers.</em></h2>
         <div className="mt-12 grid md:grid-cols-2 gap-6">
           <BMI />
           <BMR />

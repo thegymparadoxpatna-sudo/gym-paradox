@@ -27,3 +27,10 @@ export const NAV = [
   { to: "/gallery", label: "Gallery" },
   { to: "/contact", label: "Enquire" },
 ] as const;
+
+export const TRUST_ROW = [
+  "Imported equipment",
+  "Certified coaches",
+  "Open 6am – 10pm",
+  "Patliputra · Patna",
+];

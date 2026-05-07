@@ -1,17 +1,16 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
-@import "@fontsource/playfair-display/400.css";
-@import "@fontsource/playfair-display/700.css";
-@import "@fontsource/playfair-display/900.css";
-@import "@fontsource/playfair-display/900-italic.css";
+@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/geist-mono";
 @import "@fontsource-variable/inter";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-display: "Playfair Display", "Times New Roman", serif;
+  --font-display: "Fraunces Variable", "Fraunces", "Times New Roman", serif;
   --font-sans: "Inter Variable", "Inter", system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", "Geist Mono", ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -33,7 +32,11 @@
   --color-ring: var(--ring);
   --color-platinum: var(--platinum);
   --color-ink: var(--ink);
+  --color-carbon: var(--carbon);
   --color-bone: var(--bone);
+  --color-electric: var(--electric);
+  --color-electric-deep: var(--electric-deep);
+  --color-ember: var(--ember);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -42,36 +45,43 @@
 
 :root {
   --radius: 0.25rem;
-  /* Deep near-black canvas */
-  --background: oklch(0.13 0.01 260);
-  --ink: oklch(0.09 0.008 260);
-  --foreground: oklch(0.97 0.005 250);
-  --bone: oklch(0.94 0.01 80);
-  --card: oklch(0.16 0.012 260);
-  --card-foreground: oklch(0.97 0.005 250);
-  --popover: oklch(0.16 0.012 260);
-  --popover-foreground: oklch(0.97 0.005 250);
-  /* Cobalt royal blue #4D6FE8 */
-  --primary: oklch(0.62 0.18 268);
+  /* Cool obsidian canvas */
+  --background: oklch(0.105 0.012 250);
+  --ink: oklch(0.085 0.010 250);
+  --carbon: oklch(0.155 0.014 250);
+  --foreground: oklch(0.965 0.012 85);
+  --bone: oklch(0.965 0.012 85);
+  --card: oklch(0.155 0.014 250);
+  --card-foreground: oklch(0.965 0.012 85);
+  --popover: oklch(0.155 0.014 250);
+  --popover-foreground: oklch(0.965 0.012 85);
+  /* Vivid electric blue */
+  --electric: oklch(0.66 0.22 256);
+  --electric-deep: oklch(0.42 0.20 268);
+  --primary: oklch(0.66 0.22 256);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.22 0.015 260);
-  --secondary-foreground: oklch(0.97 0.005 250);
-  --muted: oklch(0.2 0.012 260);
-  --muted-foreground: oklch(0.68 0.015 260);
-  --accent: oklch(0.62 0.18 268);
+  --secondary: oklch(0.20 0.014 250);
+  --secondary-foreground: oklch(0.965 0.012 85);
+  --muted: oklch(0.18 0.012 250);
+  --muted-foreground: oklch(0.66 0.018 250);
+  --accent: oklch(0.66 0.22 256);
   --accent-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.6 0.22 27);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(1 0 0 / 8%);
+  --border: oklch(1 0 0 / 9%);
   --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.62 0.18 268);
-  /* Platinum silver #C5CAD3 */
-  --platinum: oklch(0.83 0.012 260);
+  --ring: oklch(0.66 0.22 256);
+  --platinum: oklch(0.86 0.015 250);
+  --ember: oklch(0.74 0.16 55);
 
-  --grad-cobalt: linear-gradient(135deg, oklch(0.62 0.18 268), oklch(0.45 0.16 268));
-  --grad-fade: linear-gradient(180deg, transparent, oklch(0.09 0.008 260));
-  --shadow-glow: 0 30px 80px -20px oklch(0.62 0.18 268 / 0.45);
-  --shadow-elev: 0 20px 60px -25px oklch(0 0 0 / 0.6);
+  --grad-electric: linear-gradient(135deg, oklch(0.72 0.22 256) 0%, oklch(0.55 0.22 264) 50%, oklch(0.32 0.18 270) 100%);
+  --grad-electric-soft: linear-gradient(135deg, oklch(0.66 0.22 256 / 0.18), oklch(0.42 0.20 268 / 0.05));
+  --grad-aurora: radial-gradient(60% 50% at 50% 40%, oklch(0.66 0.22 256 / 0.45), transparent 70%);
+  --grad-mesh: radial-gradient(40% 35% at 20% 15%, oklch(0.66 0.22 256 / 0.18), transparent 70%),
+               radial-gradient(50% 40% at 85% 80%, oklch(0.42 0.20 268 / 0.22), transparent 70%);
+  --grad-fade: linear-gradient(180deg, transparent, oklch(0.085 0.010 250));
+  --shadow-electric: 0 30px 80px -20px oklch(0.66 0.22 256 / 0.55);
+  --shadow-elev: 0 24px 60px -25px oklch(0 0 0 / 0.7);
 }
 
 @layer base {
@@ -83,31 +93,66 @@
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
   }
-  ::selection { background: var(--primary); color: var(--primary-foreground); }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  ::selection { background: var(--electric); color: var(--primary-foreground); }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+    font-feature-settings: "ss01";
+  }
 }
 
 @layer utilities {
-  .font-display { font-family: var(--font-display); }
+  .font-display { font-family: var(--font-display); font-variation-settings: "opsz" 144, "SOFT" 30; }
   .font-sans { font-family: var(--font-sans); }
+  .font-mono { font-family: var(--font-mono); }
   .text-balance { text-wrap: balance; }
   .text-pretty { text-wrap: pretty; }
-  .display-italic { font-style: italic; font-weight: 900; letter-spacing: -0.04em; }
+  .display-italic {
+    font-style: italic;
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+    letter-spacing: -0.04em;
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
   .grain {
     background-image: radial-gradient(oklch(1 0 0 / 0.04) 1px, transparent 1px);
     background-size: 3px 3px;
   }
   .hairline { border-top: 1px solid color-mix(in oklab, var(--foreground) 12%, transparent); }
-  .gradient-cobalt { background: var(--grad-cobalt); }
-  .text-gradient {
+  .gradient-electric { background: var(--grad-electric); }
+  .gradient-mesh { background: var(--grad-mesh); }
+  .aurora { background: var(--grad-aurora); }
+  .text-electric-gradient {
+    background: var(--grad-electric);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-platinum-gradient {
     background: linear-gradient(180deg, oklch(0.97 0.005 250), oklch(0.62 0.015 260));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
-  .marquee {
-    animation: marquee 40s linear infinite;
+  .shadow-electric { box-shadow: var(--shadow-electric); }
+
+  .btn-electric {
+    background: var(--grad-electric);
+    box-shadow: var(--shadow-electric);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
   }
+  .btn-electric:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 40px 100px -20px oklch(0.66 0.22 256 / 0.65);
+  }
+
+  .marquee { animation: marquee 60s linear infinite; }
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
@@ -120,4 +165,43 @@
   .ticker-mask {
     mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
   }
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 0.3; }
+  }
+  .pulse-soft { animation: pulse-soft 2.4s ease-in-out infinite; }
+  @keyframes aurora-drift {
+    0%, 100% { transform: translate3d(0,0,0) scale(1); opacity: 0.6; }
+    50% { transform: translate3d(2%, -3%, 0) scale(1.08); opacity: 0.85; }
+  }
+  .aurora-drift { animation: aurora-drift 14s ease-in-out infinite; }
+
+  /* Cinematic image reveal (clip-path wipe) */
+  .clip-reveal {
+    clip-path: inset(0 100% 0 0);
+    animation: clip-wipe 1.2s cubic-bezier(0.7, 0, 0.2, 1) forwards;
+  }
+  @keyframes clip-wipe {
+    to { clip-path: inset(0 0 0 0); }
+  }
+
+  /* Drop cap */
+  .drop-cap::first-letter {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 600;
+    float: left;
+    font-size: 5.5rem;
+    line-height: 0.9;
+    margin-right: 0.5rem;
+    margin-top: 0.4rem;
+    background: var(--grad-electric);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Custom cursor reset */
+  .cursor-fine, .cursor-fine * { cursor: none !important; }
+  @media (hover: none) { .cursor-fine, .cursor-fine * { cursor: auto !important; } }
 }

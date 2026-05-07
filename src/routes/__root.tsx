@@ -13,6 +13,10 @@ import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { ExitIntent } from "@/components/site/ExitIntent";
 import { OfferBanner } from "@/components/site/OfferBanner";
+import { ScrollProgress } from "@/components/site/ScrollProgress";
+import { Cursor } from "@/components/site/Cursor";
+import { MobileCTA } from "@/components/site/MobileCTA";
+import { PageTransition } from "@/components/site/PageTransition";
 
 function NotFoundComponent() {
   return (
@@ -82,14 +86,19 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen flex flex-col">
-        <OfferBanner />
+        <ScrollProgress />
         <Nav />
         <main className="flex-1">
-          <Outlet />
+          <PageTransition>
+            <Outlet />
+          </PageTransition>
         </main>
         <Footer />
         <WhatsAppButton />
+        <MobileCTA />
+        <OfferBanner />
         <ExitIntent />
+        <Cursor />
       </div>
     </QueryClientProvider>
   );
