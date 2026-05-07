@@ -1,7 +1,9 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { NAV, SITE } from "@/lib/site/config";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Logo } from "./Logo";
+import { LiveTicker } from "./LiveTicker";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -21,26 +23,35 @@ export function Nav() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled || open
-          ? "backdrop-blur-xl bg-background/70 border-b border-border"
-          : "bg-transparent"
+          ? "backdrop-blur-2xl bg-background/65 border-b border-border"
+          : "bg-gradient-to-b from-background/40 to-transparent"
       }`}
     >
-      <div className="mx-auto flex h-16 md:h-20 max-w-[1400px] items-center justify-between px-5 md:px-10">
-        <Link to="/" className="flex items-center gap-2 group">
-          <span className="font-display text-base md:text-lg tracking-tight">
-            The <em className="display-italic text-primary not-italic font-black italic">Gym</em> Paradox
-          </span>
-        </Link>
+      {/* top micro-bar with live status */}
+      <div className={`hidden md:block border-b transition ${scrolled ? "border-transparent h-0 overflow-hidden" : "border-border/40"}`}>
+        <div className="mx-auto max-w-[1400px] px-10 h-8 flex items-center justify-between">
+          <LiveTicker />
+          <a href={SITE.whatsappHref} className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground transition">
+            WhatsApp · {SITE.phone}
+          </a>
+        </div>
+      </div>
+
+      <div className="mx-auto flex h-16 md:h-[68px] max-w-[1400px] items-center justify-between px-5 md:px-10">
+        <Logo />
 
         <nav className="hidden lg:flex items-center gap-8">
           {NAV.slice(1, -1).map((n) => (
             <Link
               key={n.to}
               to={n.to}
-              className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground hover:text-foreground transition-colors"
+              className="group relative font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground transition-colors"
               activeProps={{ className: "text-foreground" }}
             >
-              {n.label}
+              <span className="relative">
+                {n.label}
+                <span className="absolute -bottom-1.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-electric opacity-0 scale-0 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100" />
+              </span>
             </Link>
           ))}
         </nav>
@@ -48,9 +59,9 @@ export function Nav() {
         <div className="flex items-center gap-3">
           <Link
             to="/contact"
-            className="hidden md:inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[11px] uppercase tracking-[0.2em] font-medium text-primary-foreground hover:opacity-90 transition"
+            className="hidden md:inline-flex items-center gap-2 rounded-full btn-electric px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] font-medium text-primary-foreground"
           >
-            Book Free Trial
+            Book Free Trial <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
           <button
             onClick={() => setOpen(!open)}
@@ -69,12 +80,12 @@ export function Nav() {
               <Link
                 key={n.to}
                 to={n.to}
-                className="font-display text-3xl py-2 hover:text-primary transition"
+                className="font-display text-3xl py-2 hover:text-electric-gradient transition"
               >
                 {n.label}
               </Link>
             ))}
-            <a href={SITE.whatsappHref} className="mt-6 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            <a href={SITE.whatsappHref} className="mt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
               WhatsApp · {SITE.phone}
             </a>
           </div>
