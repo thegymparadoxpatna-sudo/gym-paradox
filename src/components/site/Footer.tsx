@@ -14,7 +14,7 @@ export function Footer() {
       <div className="relative mx-auto max-w-[1400px] px-5 md:px-10 pt-24 md:pt-32 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
-            <Logo size={56} className="mb-6" />
+            <Logo size={56} className="mb-6" withText textClassName="text-xl md:text-2xl" />
             <p className="eyebrow text-electric-gradient">Begin · 2026</p>
             <h2 className="mt-4 font-display text-5xl md:text-7xl leading-[0.9] tracking-tight">
               Pain<br />
