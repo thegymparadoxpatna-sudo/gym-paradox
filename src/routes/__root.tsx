@@ -58,6 +58,12 @@ const ORG_JSONLD = {
     },
   ],
   sameAs: [SITE.instagram],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5.0",
+    reviewCount: "220",
+    bestRating: "5",
+  },
 };
 
 function NotFoundComponent() {
