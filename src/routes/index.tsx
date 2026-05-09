@@ -1,10 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowUpRight, Instagram, Quote } from "lucide-react";
+import { ArrowUpRight, Instagram, Quote, Star } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { Counter } from "@/components/site/Counter";
 import { Magnetic } from "@/components/site/Magnetic";
+import { GoogleReviewsBadge } from "@/components/site/GoogleReviewsBadge";
 import { SITE, TRUST_ROW } from "@/lib/site/config";
 import heroImg from "@/assets/hero.jpg";
 import facilityImg from "@/assets/facility.jpg";
@@ -263,33 +264,94 @@ function Home() {
             <div>
               <p className="eyebrow text-electric-gradient">04 — Voices</p>
               <h2 className="mt-4 font-display text-5xl md:text-6xl tracking-[-0.03em]">From inside the <em className="display-italic">paradox.</em></h2>
+              <div className="mt-6">
+                <GoogleReviewsBadge variant="card" />
+              </div>
             </div>
           </div>
           <div className="space-y-16 md:space-y-24 max-w-5xl">
             {[
-              { q: "I came in for a body. I left with a mind that doesn't quit.", n: "Aakash R.", r: "Member · 14 months", img: "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=200&q=80" },
-              { q: "The space alone makes you want to show up. The trainers make you want to come back.", n: "Priya M.", r: "Member · 9 months", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" },
-              { q: "Lost 18kg. Found a discipline I didn't know I had.", n: "Rohit K.", r: "Member · 2 years", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" },
-              { q: "Patna finally has a gym that feels like the ones I've trained at in Mumbai and Dubai.", n: "Anjali S.", r: "Founding member", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80" },
-            ].map((t, i) => (
-              <Reveal key={i} delay={i * 0.05}>
-                <figure className="grid md:grid-cols-12 gap-6 md:gap-10 items-start">
-                  <div className="md:col-span-1">
-                    <Quote className="h-8 w-8 text-electric-gradient" strokeWidth={1.2} />
-                  </div>
-                  <div className="md:col-span-11">
-                    <blockquote className="font-display text-3xl md:text-5xl leading-[1.15] tracking-[-0.025em] text-balance">
-                      "{t.q}"
-                    </blockquote>
-                    <figcaption className="mt-6 flex items-center gap-4">
-                      <img src={t.img} alt="" className="h-10 w-10 rounded-full object-cover grayscale" loading="lazy" />
-                      <span className="font-mono text-[10px] uppercase tracking-[0.22em]">{t.n}</span>
-                      <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{t.r}</span>
-                    </figcaption>
-                  </div>
-                </figure>
-              </Reveal>
-            ))}
+              {
+                q: "It is rare to find a space that feels this premium while still fostering a serious training mindset. Whether you are focused on strength, conditioning, or general wellness, this is undoubtedly one of the finest places to train in the city. Highly recommended for those who value quality and consistency.",
+                pull: "It is rare to find a space that feels this premium while still fostering a serious training mindset.",
+                n: "Samyak Shrey",
+                meta: "Google Review · 2 days ago",
+                localGuide: false,
+                featured: true,
+              },
+              {
+                q: "It's rare to find a gym that balances premium equipment, disciplined training culture, and a genuinely motivating environment so well. From strength training to overall fitness and recovery, every aspect feels thoughtfully designed for people who are serious about improving themselves. The trainers are knowledgeable, the atmosphere is energetic, and the consistency in quality truly stands out. Easily one of the best places in the city to train and stay committed to your fitness goals. Highly recommended for anyone who values professionalism, results, and a positive workout experience.",
+                pull: "Thoughtfully designed for people who are serious about improving themselves.",
+                n: "Badrish Tiwari",
+                meta: "Google Review",
+                localGuide: true,
+              },
+              {
+                q: "One of the best gyms I have ever seen. New and advanced equipment to train all the body parts. Great positive and friendly environment. Great support by trainers to do right exercise of all body. Gym owner is friendly in nature and a great person. Great experience with The Gym Paradox.",
+                pull: "One of the best gyms I have ever seen.",
+                n: "Shardindu Tiwari",
+                meta: "Google Review",
+                localGuide: true,
+              },
+              {
+                q: "Amazing gym with top-notch equipment and a very motivating environment. The trainers are highly professional, and the hygiene levels are excellent. Highly recommended for everyone!",
+                pull: "Top-notch equipment and a very motivating environment.",
+                n: "Devesh Ojha",
+                meta: "Google Review",
+                localGuide: true,
+              },
+              {
+                q: "High-quality equipment and expert trainers make this gym a powerhouse for fitness results. Clean, motivating, and worth every penny.",
+                pull: "A powerhouse for fitness results.",
+                n: "Sushant Mishra",
+                meta: "Google Review",
+                localGuide: false,
+              },
+            ].map((t, i) => {
+              const initial = t.n.charAt(0);
+              return (
+                <Reveal key={i} delay={i * 0.05}>
+                  <figure className="grid md:grid-cols-12 gap-6 md:gap-10 items-start">
+                    <div className="md:col-span-1">
+                      <Quote className="h-8 w-8 text-electric-gradient" strokeWidth={1.2} />
+                    </div>
+                    <div className="md:col-span-11">
+                      <div className="flex items-center gap-2 mb-4" aria-label="5 out of 5 stars">
+                        {Array.from({ length: 5 }).map((_, s) => (
+                          <Star key={s} className="h-3.5 w-3.5 fill-[oklch(0.82_0.17_85)] text-[oklch(0.82_0.17_85)]" strokeWidth={0} />
+                        ))}
+                        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground ml-1">5.0</span>
+                      </div>
+                      <blockquote className={`font-display ${t.featured ? "text-4xl md:text-6xl" : "text-3xl md:text-5xl"} leading-[1.15] tracking-[-0.025em] text-balance`}>
+                        "{t.pull}"
+                      </blockquote>
+                      {t.q !== t.pull && (
+                        <p className="mt-5 text-base text-muted-foreground leading-relaxed max-w-3xl">{t.q}</p>
+                      )}
+                      <figcaption className="mt-6 flex flex-wrap items-center gap-3 md:gap-4">
+                        <span aria-hidden className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-electric/40 bg-carbon/60 font-display text-base text-electric-gradient">
+                          {initial}
+                        </span>
+                        <span className="font-mono text-[10px] uppercase tracking-[0.22em]">{t.n}</span>
+                        {t.localGuide && (
+                          <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-electric-gradient border border-electric/40 rounded-full px-2 py-0.5">
+                            Local Guide
+                          </span>
+                        )}
+                        <a href={SITE.maps} target="_blank" rel="noopener noreferrer" className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground transition">
+                          {t.meta} · Verified
+                        </a>
+                      </figcaption>
+                    </div>
+                  </figure>
+                </Reveal>
+              );
+            })}
+          </div>
+          <div className="mt-16 flex justify-center">
+            <a href={SITE.maps} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground transition">
+              Read all 220+ reviews on Google <ArrowUpRight className="h-4 w-4" />
+            </a>
           </div>
         </div>
       </section>
