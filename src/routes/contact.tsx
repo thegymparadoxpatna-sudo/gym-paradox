@@ -18,6 +18,31 @@ export const Route = createFileRoute("/contact")({
     links: [
       { rel: "canonical", href: "https://gym-paradox.lovable.app/contact" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Enquire · The Gym Paradox",
+          url: "https://gym-paradox.lovable.app/contact",
+          mainEntity: {
+            "@type": "HealthClub",
+            name: "The Gym Paradox",
+            telephone: "+91 72800 55007",
+            email: "thegymparadoxpatna@gmail.com",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "3rd Floor, Uno Business Centre, Patliputra Colony",
+              addressLocality: "Patna",
+              addressRegion: "Bihar",
+              postalCode: "800013",
+              addressCountry: "IN",
+            },
+          },
+        }),
+      },
+    ],
   }),
   component: Contact,
 });
