@@ -37,16 +37,18 @@ export function Footer() {
               {done ? (
                 <p className="text-sm text-electric-gradient">Welcome. Watch your inbox.</p>
               ) : (
-                <div className="relative flex border-b border-border focus-within:border-electric transition">
+                <div className="relative flex items-center border-b border-border focus-within:border-electric transition">
                   <input
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     type="email"
+                    inputMode="email"
+                    autoComplete="email"
                     required
                     placeholder="your@email.com"
-                    className="flex-1 bg-transparent py-3 text-sm focus:outline-none placeholder:text-muted-foreground/50"
+                    className="flex-1 min-w-0 bg-transparent py-3 min-h-[44px] text-base md:text-sm focus:outline-none placeholder:text-muted-foreground/50"
                   />
-                  <button type="submit" className="px-3 text-muted-foreground hover:text-foreground transition" aria-label="Subscribe">
+                  <button type="submit" className="px-3 min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-muted-foreground hover:text-foreground transition" aria-label="Subscribe">
                     <ArrowUpRight className="h-4 w-4" />
                   </button>
                 </div>

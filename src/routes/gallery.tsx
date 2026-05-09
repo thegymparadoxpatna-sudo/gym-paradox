@@ -23,7 +23,7 @@ function Gallery() {
   return (
     <>
       <PageHeader eyebrow="Gallery" title="Inside the" italic="paradox." />
-      <section className="pb-24 md:pb-32">
+      <section className="pb-16 md:pb-24 lg:pb-32">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10 columns-2 md:columns-3 gap-3 md:gap-4 [column-fill:_balance]">
           {IMG.map((id, i) => (
             <button

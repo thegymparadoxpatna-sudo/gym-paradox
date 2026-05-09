@@ -2,7 +2,7 @@ import { Reveal } from "./Reveal";
 
 export function PageHeader({ eyebrow, title, italic, lede, image }: { eyebrow: string; title: string; italic?: string; lede?: string; image?: string }) {
   return (
-    <section className="relative pt-40 md:pt-48 pb-16 md:pb-24 overflow-hidden">
+    <section className="relative pt-32 md:pt-48 pb-12 md:pb-24 overflow-hidden">
       {image && (
         <div className="absolute inset-0 -z-10">
           <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-35" />
@@ -14,10 +14,10 @@ export function PageHeader({ eyebrow, title, italic, lede, image }: { eyebrow: s
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <Reveal>
           <p className="eyebrow text-electric-gradient">{eyebrow}</p>
-          <h1 className="mt-6 font-display text-[12vw] md:text-[8vw] leading-[0.86] tracking-[-0.045em] text-balance">
+          <h1 className="mt-6 font-display text-[14vw] md:text-[8vw] leading-[0.9] md:leading-[0.86] tracking-[-0.035em] md:tracking-[-0.045em] text-balance">
             {title}{italic && <> <em className="display-italic text-electric-gradient">{italic}</em></>}
           </h1>
-          {lede && <p className="mt-8 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">{lede}</p>}
+          {lede && <p className="mt-6 md:mt-8 max-w-2xl text-base md:text-lg text-muted-foreground leading-[1.7] md:leading-relaxed">{lede}</p>}
         </Reveal>
       </div>
     </section>

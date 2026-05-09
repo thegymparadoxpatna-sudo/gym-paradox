@@ -65,8 +65,9 @@ export function Nav() {
           </Link>
           <button
             onClick={() => setOpen(!open)}
-            className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border border-border"
-            aria-label="Menu"
+            className="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-full border border-border"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
@@ -75,18 +76,21 @@ export function Nav() {
 
       {open && (
         <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl">
-          <div className="flex flex-col items-center px-5 py-6 gap-1">
+          <div className="flex flex-col items-center px-5 py-6 gap-1 max-h-[calc(100svh-64px)] overflow-y-auto">
             <Logo size={80} className="mb-6" linked={false} />
             {NAV.map((n) => (
               <Link
                 key={n.to}
                 to={n.to}
-                className="font-display text-3xl py-2 hover:text-electric-gradient transition"
+                className="font-display text-3xl py-3 min-h-[48px] flex items-center hover:text-electric-gradient transition"
               >
                 {n.label}
               </Link>
             ))}
-            <a href={SITE.whatsappHref} className="mt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+            <Link to="/contact" className="mt-6 inline-flex items-center gap-2 btn-electric rounded-full px-7 py-4 font-mono text-[10px] uppercase tracking-[0.22em] text-primary-foreground">
+              Book Free Trial <ArrowUpRight className="h-3.5 w-3.5" />
+            </Link>
+            <a href={SITE.whatsappHref} className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground py-2 min-h-[44px] inline-flex items-center">
               WhatsApp · {SITE.phone}
             </a>
           </div>

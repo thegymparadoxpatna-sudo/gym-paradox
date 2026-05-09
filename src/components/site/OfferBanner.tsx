@@ -11,7 +11,7 @@ export function OfferBanner() {
   }, []);
   if (!open) return null;
   return (
-    <div className="fixed bottom-5 left-5 z-40 max-w-sm animate-fade-in">
+    <div className="hidden md:block fixed bottom-5 left-5 z-40 max-w-sm animate-fade-in">
       <div className="relative overflow-hidden rounded-md border border-border bg-carbon/90 backdrop-blur-xl p-4 shadow-elev">
         <div className="absolute inset-0 -z-10 gradient-mesh opacity-50" />
         <div className="flex items-start gap-3">

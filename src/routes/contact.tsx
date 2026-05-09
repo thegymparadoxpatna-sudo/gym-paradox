@@ -42,7 +42,7 @@ function Contact() {
     <>
       <PageHeader eyebrow="Enquire · Book Free Trial" title="Begin the" italic="paradox." lede="Tell us a little about you. We'll set up your complimentary 3-day pass and a quick walk-through of the space." />
 
-      <section className="pb-24 md:pb-32">
+      <section className="pb-16 md:pb-24 lg:pb-32">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10 grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">
             {done ? (
@@ -78,21 +78,21 @@ function Contact() {
                   </div>
                 </div>
 
-                <Field label="Name" name="name" required value={values.name} onChange={(v) => update("name", v)} />
-                <Field label="Phone" name="phone" required type="tel" value={values.phone} onChange={(v) => update("phone", v)} />
-                <Field label="Email" name="email" type="email" value={values.email} onChange={(v) => update("email", v)} />
+                <Field label="Name" name="name" required value={values.name} onChange={(v) => update("name", v)} autoComplete="name" />
+                <Field label="Phone" name="phone" required type="tel" inputMode="tel" autoComplete="tel" value={values.phone} onChange={(v) => update("phone", v)} />
+                <Field label="Email" name="email" type="email" inputMode="email" autoComplete="email" value={values.email} onChange={(v) => update("email", v)} />
                 <div>
                   <label className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Interest</label>
-                  <select value={values.interest} onChange={(e) => update("interest", e.target.value)} className="mt-2 w-full bg-transparent border border-border rounded-sm px-4 py-3.5 text-sm focus:outline-none focus:border-electric transition">
+                  <select value={values.interest} onChange={(e) => update("interest", e.target.value)} className="mt-2 w-full min-h-[48px] bg-transparent border border-border rounded-sm px-4 py-3.5 text-base md:text-sm focus:outline-none focus:border-electric transition">
                     {["Free Trial", "Membership", "Personal Training", "Boxing & CrossFit", "Zumba & Aerobic", "HIIT", "Strength Training", "Other"].map((i) => <option key={i} className="bg-background">{i}</option>)}
                   </select>
                 </div>
                 <div>
                   <label className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Message</label>
-                  <textarea value={values.message} onChange={(e) => update("message", e.target.value)} rows={4} className="mt-2 w-full bg-transparent border border-border rounded-sm px-4 py-3.5 text-sm focus:outline-none focus:border-electric resize-none transition" />
+                  <textarea value={values.message} onChange={(e) => update("message", e.target.value)} rows={4} className="mt-2 w-full bg-transparent border border-border rounded-sm px-4 py-3.5 text-base md:text-sm focus:outline-none focus:border-electric resize-none transition" />
                 </div>
                 <Magnetic strength={0.12}>
-                  <button type="submit" className="inline-flex items-center gap-2 btn-electric text-primary-foreground rounded-full px-8 py-4 font-mono text-[10px] uppercase tracking-[0.22em]">
+                  <button type="submit" className="inline-flex w-full sm:w-auto justify-center items-center gap-2 btn-electric text-primary-foreground rounded-full px-8 py-4 min-h-[48px] font-mono text-[10px] uppercase tracking-[0.22em]">
                     Send enquiry <ArrowUpRight className="h-4 w-4" />
                   </button>
                 </Magnetic>
@@ -127,12 +127,12 @@ function Contact() {
   );
 }
 
-function Field({ label, name, type = "text", required, value, onChange }: { label: string; name: string; type?: string; required?: boolean; value: string; onChange: (v: string) => void }) {
+function Field({ label, name, type = "text", required, value, onChange, inputMode, autoComplete }: { label: string; name: string; type?: string; required?: boolean; value: string; onChange: (v: string) => void; inputMode?: "text" | "tel" | "email" | "numeric" | "url" | "search" | "decimal" | "none"; autoComplete?: string }) {
   return (
     <div>
       <label className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{label}{required && " *"}</label>
-      <input name={name} type={type} required={required} maxLength={120} value={value} onChange={(e) => onChange(e.target.value)}
-        className="mt-2 w-full bg-transparent border border-border rounded-sm px-4 py-3.5 text-sm focus:outline-none focus:border-electric transition" />
+      <input name={name} type={type} inputMode={inputMode} autoComplete={autoComplete} required={required} maxLength={120} value={value} onChange={(e) => onChange(e.target.value)}
+        className="mt-2 w-full min-h-[48px] bg-transparent border border-border rounded-sm px-4 py-3.5 text-base md:text-sm focus:outline-none focus:border-electric transition" />
     </div>
   );
 }
