@@ -9,6 +9,11 @@ export const Route = createFileRoute("/facilities")({
       { title: "Facilities & Equipment · The Gym Paradox Patna" },
       { name: "description", content: "Imported strength platforms. Olympic flooring. Recovery zones. Hospital-grade hygiene. Premium interiors in Patliputra, Patna." },
       { property: "og:title", content: "Facilities · The Gym Paradox" },
+      { property: "og:url", content: "https://gym-paradox.lovable.app/facilities" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://gym-paradox.lovable.app/facilities" },
     ],
   }),
   component: Facilities,

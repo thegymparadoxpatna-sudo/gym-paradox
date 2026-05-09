@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Reveal } from "@/components/site/Reveal";
@@ -10,6 +11,36 @@ export const Route = createFileRoute("/programs")({
       { name: "description", content: "Five disciplines under one roof. Strength training, Boxing & CrossFit, HIIT, Zumba & Aerobic, Personal Training." },
       { property: "og:title", content: "Programs · The Gym Paradox" },
       { property: "og:description", content: "Five disciplines. One standard. Pain pays off." },
+      { property: "og:url", content: "https://gym-paradox.lovable.app/programs" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://gym-paradox.lovable.app/programs" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          itemListElement: [
+            "Strength Training",
+            "Boxing & CrossFit",
+            "HIIT",
+            "Zumba & Aerobic",
+            "Personal Training",
+          ].map((name, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "Service",
+              name,
+              provider: { "@type": "HealthClub", name: "The Gym Paradox" },
+              areaServed: "Patna, Bihar, India",
+            },
+          })),
+        }),
+      },
     ],
   }),
   component: Programs,
@@ -50,7 +81,29 @@ function Programs() {
       </section>
 
       <CalculatorSection />
+      <CrossLinks />
     </>
+  );
+}
+
+function CrossLinks() {
+  return (
+    <section className="py-16 md:py-20 border-t border-border">
+      <div className="mx-auto max-w-[1400px] px-5 md:px-10 grid md:grid-cols-3 gap-6 text-sm">
+        <Link to="/trainers" className="border border-border p-6 rounded-sm hover:border-electric transition">
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-electric-gradient">Coaches</p>
+          <p className="mt-3 font-display text-2xl">Meet the trainers who run these programs</p>
+        </Link>
+        <Link to="/facilities" className="border border-border p-6 rounded-sm hover:border-electric transition">
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-electric-gradient">Equipment</p>
+          <p className="mt-3 font-display text-2xl">The platforms, racks, and recovery zones</p>
+        </Link>
+        <Link to="/membership" className="border border-border p-6 rounded-sm hover:border-electric transition">
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-electric-gradient">Membership</p>
+          <p className="mt-3 font-display text-2xl">Pick a plan and book a free 3-day trial</p>
+        </Link>
+      </div>
+    </section>
   );
 }
 
