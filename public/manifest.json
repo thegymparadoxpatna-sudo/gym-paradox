@@ -1,0 +1,13 @@
+{
+  "name": "The Gym Paradox",
+  "short_name": "Gym Paradox",
+  "description": "Patna's premium fitness destination. Pain Pays Off.",
+  "icons": [
+    { "src": "/logo-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/logo.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "background_color": "#0A0A0A",
+  "theme_color": "#0A0A0A",
+  "display": "standalone",
+  "start_url": "/"
+}

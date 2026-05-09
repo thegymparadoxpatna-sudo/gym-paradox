@@ -38,7 +38,7 @@ export function Nav() {
       </div>
 
       <div className="mx-auto flex h-16 md:h-[68px] max-w-[1400px] items-center justify-between px-5 md:px-10">
-        <Logo />
+        <Logo className="h-8 w-8 md:h-10 md:w-10" />
 
         <nav className="hidden lg:flex items-center gap-8">
           {NAV.slice(1, -1).map((n) => (
@@ -75,7 +75,8 @@ export function Nav() {
 
       {open && (
         <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl">
-          <div className="flex flex-col px-5 py-6 gap-1">
+          <div className="flex flex-col items-center px-5 py-6 gap-1">
+            <Logo size={80} className="mb-6" linked={false} />
             {NAV.map((n) => (
               <Link
                 key={n.to}

@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowUpRight, Instagram } from "lucide-react";
 import { NAV, SITE } from "@/lib/site/config";
+import { Logo } from "./Logo";
 
 export function Footer() {
   const [email, setEmail] = useState("");
@@ -13,6 +14,7 @@ export function Footer() {
       <div className="relative mx-auto max-w-[1400px] px-5 md:px-10 pt-24 md:pt-32 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
+            <Logo size={56} className="mb-6" />
             <p className="eyebrow text-electric-gradient">Begin · 2026</p>
             <h2 className="mt-4 font-display text-5xl md:text-7xl leading-[0.9] tracking-tight">
               Pain<br />
