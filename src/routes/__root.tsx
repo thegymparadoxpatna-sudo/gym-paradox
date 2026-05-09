@@ -11,13 +11,9 @@ import appCss from "../styles.css?url";
 import frauncesWghtUrl from "@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2?url";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
-import { WhatsAppButton } from "@/components/site/WhatsAppButton";
-import { ExitIntent } from "@/components/site/ExitIntent";
-import { OfferBanner } from "@/components/site/OfferBanner";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
-
-import { MobileCTA } from "@/components/site/MobileCTA";
 import { PageTransition } from "@/components/site/PageTransition";
+import { DeferredWidgets } from "@/components/site/DeferredWidgets";
 import { SITE } from "@/lib/site/config";
 
 const SITE_URL = "https://gym-paradox.lovable.app";
@@ -194,10 +190,7 @@ function RootComponent() {
           </PageTransition>
         </main>
         <Footer />
-        <WhatsAppButton />
-        <MobileCTA />
-        <OfferBanner />
-        <ExitIntent />
+        <DeferredWidgets />
       </div>
     </QueryClientProvider>
   );
