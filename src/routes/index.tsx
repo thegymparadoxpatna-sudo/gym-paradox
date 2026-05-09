@@ -207,7 +207,7 @@ function Home() {
               { t: "Personal Training", n: "05", meta: "Programmed · 1-on-1", img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80", span: "md:col-span-4 h-[55vh]" },
             ].map((p) => (
               <Link key={p.t} to="/programs" className={`group relative overflow-hidden ${p.span}`}>
-                <img src={p.img} alt={p.t} className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-110" />
+                <img src={p.img} alt={p.t} width="800" height="600" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500" style={{ background: "var(--grad-electric-soft)" }} />
                 <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
