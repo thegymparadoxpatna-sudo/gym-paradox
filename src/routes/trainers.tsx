@@ -26,7 +26,7 @@ function Trainers() {
   return (
     <>
       <PageHeader eyebrow="The Team" title="Coaches, not" italic="influencers." lede="The people you train with shape who you become. Our coaches are credentialed, lifelong students of the craft." />
-      <section className="pb-24 md:pb-32">
+      <section className="pb-16 md:pb-24 lg:pb-32">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           {TEAM.map((t, i) => (
             <Reveal key={t.n} delay={i * 0.05}>

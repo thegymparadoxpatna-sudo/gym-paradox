@@ -42,7 +42,7 @@ function Contact() {
     <>
       <PageHeader eyebrow="Enquire · Book Free Trial" title="Begin the" italic="paradox." lede="Tell us a little about you. We'll set up your complimentary 3-day pass and a quick walk-through of the space." />
 
-      <section className="pb-24 md:pb-32">
+      <section className="pb-16 md:pb-24 lg:pb-32">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10 grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">
             {done ? (

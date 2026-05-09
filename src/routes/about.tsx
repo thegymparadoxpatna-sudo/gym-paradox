@@ -26,7 +26,7 @@ function About() {
         image={aboutImg}
       />
 
-      <section className="py-24 md:py-32 relative overflow-hidden">
+      <section className="py-16 md:py-24 lg:py-32 relative overflow-hidden">
         <div className="absolute -right-12 top-32 font-display italic text-[28vw] md:text-[18vw] text-electric/[0.04] leading-none pointer-events-none select-none">PARADOX</div>
         <div className="relative mx-auto max-w-[1100px] px-5 md:px-10 space-y-20">
           {[
@@ -48,7 +48,7 @@ function About() {
         </div>
       </section>
 
-      <section className="relative py-32 bg-ink border-y border-border overflow-hidden">
+      <section className="relative py-20 md:py-32 bg-ink border-y border-border overflow-hidden">
         <div className="absolute inset-0 gradient-mesh opacity-50 pointer-events-none" />
         <div className="absolute inset-0 aurora opacity-40 pointer-events-none" />
         <div className="relative mx-auto max-w-[1400px] px-5 md:px-10 text-center">

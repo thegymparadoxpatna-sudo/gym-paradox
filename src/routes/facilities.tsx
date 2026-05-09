@@ -33,7 +33,7 @@ function Facilities() {
     <>
       <PageHeader eyebrow="The Standard" title="Built like a" italic="club." lede="World-class equipment is the floor, not the ceiling. Every detail of the space is engineered so nothing distracts you from the work." image={facilityImg} />
 
-      <section className="pb-24">
+      <section className="pb-16 md:pb-24">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
           {ITEMS.map((it) => (
             <div key={it.t} className={`group relative overflow-hidden rounded-sm ${it.span}`}>
@@ -48,7 +48,7 @@ function Facilities() {
         </div>
       </section>
 
-      <section className="py-24 md:py-32 bg-ink border-y border-border relative overflow-hidden">
+      <section className="py-16 md:py-24 lg:py-32 bg-ink border-y border-border relative overflow-hidden">
         <div className="absolute inset-0 gradient-mesh opacity-40" />
         <div className="relative mx-auto max-w-[1400px] px-5 md:px-10">
           <h2 className="font-display text-5xl md:text-6xl tracking-[-0.03em]">Four <em className="display-italic text-electric-gradient">non-negotiables.</em></h2>

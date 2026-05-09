@@ -28,7 +28,7 @@ function Programs() {
     <>
       <PageHeader eyebrow="Five disciplines · One standard" title="Train" italic="with intent." lede="Each program at The Gym Paradox is designed by coaches, not algorithms. Pick a discipline. Or train all five." />
 
-      <section className="pb-24">
+      <section className="pb-16 md:pb-24">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10 space-y-24 md:space-y-32">
           {PROGRAMS.map((p, i) => (
             <Reveal key={p.t}>
@@ -56,7 +56,7 @@ function Programs() {
 
 function CalculatorSection() {
   return (
-    <section className="bg-ink border-y border-border py-24 md:py-32">
+    <section className="bg-ink border-y border-border py-16 md:py-24 lg:py-32">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-electric-gradient">Tools</p>
         <h2 className="mt-4 font-display text-5xl md:text-6xl tracking-[-0.03em]">Know your <em className="display-italic text-electric-gradient">numbers.</em></h2>

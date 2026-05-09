@@ -136,7 +136,7 @@ function Home() {
       </section>
 
       {/* MANIFESTO */}
-      <section className="relative py-32 md:py-48 overflow-hidden">
+      <section className="relative py-20 md:py-32 lg:py-48 overflow-hidden">
         <div className="absolute -left-12 top-32 font-display italic text-[28vw] md:text-[20vw] text-electric/[0.04] leading-none pointer-events-none select-none">01</div>
         <div className="relative mx-auto max-w-[1400px] px-5 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-3">
@@ -161,7 +161,7 @@ function Home() {
       {/* STATS */}
       <section className="relative bg-ink border-y border-border overflow-hidden">
         <div className="absolute inset-0 gradient-mesh opacity-50 pointer-events-none" />
-        <div className="relative mx-auto max-w-[1400px] px-5 md:px-10 py-24 md:py-32 grid grid-cols-2 md:grid-cols-4 gap-y-16">
+        <div className="relative mx-auto max-w-[1400px] px-5 md:px-10 py-16 md:py-24 lg:py-32 grid grid-cols-2 md:grid-cols-4 gap-y-16">
           {[
             { n: 12, suffix: ",000", l: "Sq ft of premium space" },
             { n: 5, l: "Specialised disciplines" },
@@ -182,7 +182,7 @@ function Home() {
       </section>
 
       {/* PROGRAMS PREVIEW */}
-      <section className="relative py-32 md:py-48">
+      <section className="relative py-20 md:py-32 lg:py-48">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
           <div className="flex items-end justify-between mb-16">
             <div>
@@ -223,7 +223,7 @@ function Home() {
       </section>
 
       {/* SPLIT FEATURE */}
-      <section className="relative py-32 md:py-48 bg-ink overflow-hidden">
+      <section className="relative py-20 md:py-32 lg:py-48 bg-ink overflow-hidden">
         <div className="absolute inset-0 gradient-mesh opacity-30 pointer-events-none" />
         <div className="relative mx-auto max-w-[1400px] px-5 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center">
           <Reveal className="md:col-span-6 relative aspect-[4/5]">
@@ -256,7 +256,7 @@ function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="relative py-32 md:py-44">
+      <section className="relative py-20 md:py-32 lg:py-44">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
           <div className="flex items-end justify-between mb-16">
             <div>
@@ -294,7 +294,7 @@ function Home() {
       </section>
 
       {/* INSTAGRAM */}
-      <section className="relative py-24 md:py-32 border-t border-border">
+      <section className="relative py-16 md:py-24 lg:py-32 border-t border-border">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
           <div className="flex items-end justify-between mb-10">
             <h2 className="font-display text-4xl md:text-5xl tracking-[-0.03em]">Inside the <em className="display-italic text-electric-gradient">paradox.</em></h2>
