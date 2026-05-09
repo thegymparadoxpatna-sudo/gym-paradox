@@ -14,7 +14,7 @@ export const SITE = {
   instagram: "https://instagram.com/thegymparadox",
   instagramHandle: "@thegymparadox",
   maps: "https://maps.app.goo.gl/7LfgSJzoS8xZJRYu9",
-  mapsEmbed: "https://www.google.com/maps?q=Uno+Business+Centre+Patliputra+Colony+Patna&output=embed",
+  mapsEmbed: "https://www.google.com/maps?q=The+Gym+Paradox+Patliputra+Colony+Patna&output=embed",
 };
 
 export const NAV = [
