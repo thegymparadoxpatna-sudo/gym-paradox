@@ -37,7 +37,7 @@ function Gallery() {
               className="mb-3 md:mb-4 block w-full overflow-hidden break-inside-avoid"
               style={{ aspectRatio: i % 3 === 0 ? "3/4" : i % 4 === 0 ? "1/1" : "4/5" }}
             >
-              <img src={`https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=900&q=70`} alt="" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
+              <img src={`https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=900&q=70`} alt={`The Gym Paradox Patna — facility photo ${i + 1}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
             </button>
           ))}
         </div>
@@ -45,8 +45,8 @@ function Gallery() {
 
       {open && (
         <div onClick={() => setOpen(null)} className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 animate-fade-in">
-          <button className="absolute top-5 right-5 h-10 w-10 inline-flex items-center justify-center rounded-full bg-background/30 hover:bg-background/60"><X className="h-5 w-5" /></button>
-          <img src={`https://images.unsplash.com/photo-${open}?auto=format&fit=crop&w=1800&q=85`} alt="" className="max-h-[90vh] max-w-[95vw] object-contain" />
+          <button aria-label="Close gallery" className="absolute top-5 right-5 h-11 w-11 inline-flex items-center justify-center rounded-full bg-background/30 hover:bg-background/60"><X className="h-5 w-5" /></button>
+          <img src={`https://images.unsplash.com/photo-${open}?auto=format&fit=crop&w=1800&q=85`} alt="The Gym Paradox Patna — full size facility photo" className="max-h-[90vh] max-w-[95vw] object-contain" />
         </div>
       )}
     </>
