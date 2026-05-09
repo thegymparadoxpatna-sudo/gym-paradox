@@ -58,8 +58,8 @@ export function Footer() {
             <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground mb-5">Visit</p>
             <p className="text-sm leading-relaxed">{SITE.address}</p>
             <p className="text-sm text-muted-foreground mt-4">{SITE.hours}</p>
-            <a href={SITE.phoneHref} className="block text-sm mt-4 hover:text-electric-gradient transition">{SITE.phone}</a>
-            <a href={SITE.emailHref} className="block text-sm text-muted-foreground hover:text-foreground transition">{SITE.email}</a>
+            <a href={SITE.phoneHref} className="block text-sm mt-4 py-1.5 min-h-[24px] hover:text-electric-gradient transition">{SITE.phone}</a>
+            <a href={SITE.emailHref} className="block text-sm mt-2 py-1.5 min-h-[24px] text-muted-foreground hover:text-foreground transition">{SITE.email}</a>
           </div>
 
           <div className="md:col-span-2">
