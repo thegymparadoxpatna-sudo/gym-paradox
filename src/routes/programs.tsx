@@ -17,6 +17,31 @@ export const Route = createFileRoute("/programs")({
     links: [
       { rel: "canonical", href: "https://gym-paradox.lovable.app/programs" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          itemListElement: [
+            "Strength Training",
+            "Boxing & CrossFit",
+            "HIIT",
+            "Zumba & Aerobic",
+            "Personal Training",
+          ].map((name, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "Service",
+              name,
+              provider: { "@type": "HealthClub", name: "The Gym Paradox" },
+              areaServed: "Patna, Bihar, India",
+            },
+          })),
+        }),
+      },
+    ],
   }),
   component: Programs,
 });
