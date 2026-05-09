@@ -18,6 +18,10 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Premium fitness destination in Patna. Cinematic spaces, scientific training, world-class equipment. Membership opens 2026." },
       { property: "og:title", content: "The Gym Paradox · Pain Pays Off" },
       { property: "og:description", content: "A luxury performance club in Patliputra, Patna. Discipline is freedom." },
+      { property: "og:url", content: "https://gym-paradox.lovable.app/" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://gym-paradox.lovable.app/" },
     ],
   }),
   component: Home,
