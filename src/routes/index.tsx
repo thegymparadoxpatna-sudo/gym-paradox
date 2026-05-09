@@ -275,44 +275,62 @@ function Home() {
                 n: "Samyak Shrey",
                 meta: "Member · 2 days ago",
                 localGuide: false,
-                img: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=200&h=200&q=80",
+                img: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=200&h=200&q=80",
+                isNew: false,
               },
               {
                 q: "It's rare to find a gym that balances premium equipment, disciplined training culture, and a genuinely motivating environment so well. From strength training to overall fitness and recovery, every aspect feels thoughtfully designed for people who are serious about improving themselves. The trainers are knowledgeable, the atmosphere is energetic, and the consistency in quality truly stands out. Easily one of the best places in the city to train and stay committed to your fitness goals. Highly recommended for anyone who values professionalism, results, and a positive workout experience.",
                 n: "Badrish Tiwari",
                 meta: "Member · Local Guide",
                 localGuide: true,
-                img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&h=200&q=80",
+                img: "https://images.unsplash.com/photo-1583195764036-6dc248ac07d9?auto=format&fit=crop&w=200&h=200&q=80",
+                isNew: false,
               },
               {
                 q: "One of the best gyms I have ever seen. New and advanced equipment to train all the body parts. Great positive and friendly environment. Great support by trainers to do right exercise of all body. Gym owner is friendly in nature and a great person. Great experience with The Gym Paradox.",
                 n: "Shardindu Tiwari",
                 meta: "Member · Local Guide",
                 localGuide: true,
-                img: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=200&h=200&q=80",
+                img: "https://images.unsplash.com/photo-1614289371518-722f2615943d?auto=format&fit=crop&w=200&h=200&q=80",
+                isNew: false,
               },
               {
                 q: "Amazing gym with top-notch equipment and a very motivating environment. The trainers are highly professional, and the hygiene levels are excellent. Highly recommended for everyone!",
                 n: "Devesh Ojha",
                 meta: "Member · Local Guide",
                 localGuide: true,
-                img: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=200&h=200&q=80",
+                img: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=200&h=200&q=80",
+                isNew: false,
               },
               {
                 q: "High-quality equipment and expert trainers make this gym a powerhouse for fitness results. Clean, motivating, and worth every penny.",
                 n: "Sushant Mishra",
                 meta: "Verified Google Review",
                 localGuide: false,
-                img: "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?auto=format&fit=crop&w=200&h=200&q=80",
+                img: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=200&h=200&q=80",
+                isNew: false,
+              },
+              {
+                q: "Love the way this gym \"I've been training for a few months now, and I can honestly say it's changed the game for me! The equipment is top-tier and always well-maintained, the atmosphere is incredibly motivating, and the staff is super knowledgeable and welcoming. It's clean, well-organized, and truly a fantastic place to achieve fitness goals. Highly recommend to anyone serious about their fitness journey!\"",
+                n: "Amit Tiwari",
+                meta: "Member · 2 days ago",
+                localGuide: false,
+                img: "https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?auto=format&fit=crop&w=200&h=200&q=80",
+                isNew: true,
               },
             ].map((t, i) => (
               <Reveal key={i} delay={i * 0.05}>
                 <figure className="relative h-full p-7 md:p-8 border border-border rounded-sm bg-carbon/40 backdrop-blur-md hover:border-electric/60 transition flex flex-col">
                   <Quote aria-hidden className="absolute top-6 right-6 h-7 w-7 text-electric/30" strokeWidth={1.2} />
-                  <div className="flex items-center gap-1 mb-5" aria-label="5 out of 5 stars">
-                    {Array.from({ length: 5 }).map((_, s) => (
-                      <Star key={s} className="h-3.5 w-3.5 fill-[oklch(0.82_0.17_85)] text-[oklch(0.82_0.17_85)]" strokeWidth={0} />
-                    ))}
+                  <div className="flex items-center gap-2 mb-5">
+                    <div className="flex items-center gap-1" aria-label="5 out of 5 stars">
+                      {Array.from({ length: 5 }).map((_, s) => (
+                        <Star key={s} className="h-3.5 w-3.5 fill-[oklch(0.82_0.17_85)] text-[oklch(0.82_0.17_85)]" strokeWidth={0} />
+                      ))}
+                    </div>
+                    {t.isNew && (
+                      <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-electric-gradient border border-electric/40 rounded-full px-2 py-0.5">New</span>
+                    )}
                   </div>
                   <blockquote className="text-base md:text-[15px] leading-relaxed text-foreground/90 flex-1">
                     "{t.q}"
