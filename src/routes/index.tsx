@@ -200,9 +200,9 @@ function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
             {[
-              { t: "Strength", n: "01", meta: "60 min · High intensity", img: "https://images.unsplash.com/photo-1534438097545-a2c22c57f2ad?auto=format&fit=crop&w=1200&q=80", span: "md:col-span-7 h-[60vh]" },
-              { t: "Boxing & CrossFit", n: "02", meta: "50 min · Explosive", img: "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=1200&q=80", span: "md:col-span-5 h-[60vh]" },
-              { t: "HIIT", n: "03", meta: "35 min · Sharp", img: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80", span: "md:col-span-4 h-[55vh]" },
+              { t: "Strength", n: "01", meta: "60 min · High intensity", img: "https://images.unsplash.com/photo-1534438097545-a2c22c57f2ad?auto=format&fit=crop&w=800&q=70", span: "md:col-span-7 h-[60vh]" },
+              { t: "Boxing & CrossFit", n: "02", meta: "50 min · Explosive", img: "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=800&q=70", span: "md:col-span-5 h-[60vh]" },
+              { t: "HIIT", n: "03", meta: "35 min · Sharp", img: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=70", span: "md:col-span-4 h-[55vh]" },
               { t: "Zumba & Aerobic", n: "04", meta: "45 min · Rhythmic", img: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80", span: "md:col-span-4 h-[55vh]" },
               { t: "Personal Training", n: "05", meta: "Programmed · 1-on-1", img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80", span: "md:col-span-4 h-[55vh]" },
             ].map((p) => (
