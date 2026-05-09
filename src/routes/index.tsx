@@ -1,10 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowUpRight, Instagram, Quote } from "lucide-react";
+import { ArrowUpRight, Instagram, Quote, Star } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { Counter } from "@/components/site/Counter";
 import { Magnetic } from "@/components/site/Magnetic";
+import { GoogleReviewsBadge } from "@/components/site/GoogleReviewsBadge";
 import { SITE, TRUST_ROW } from "@/lib/site/config";
 import heroImg from "@/assets/hero.jpg";
 import facilityImg from "@/assets/facility.jpg";
