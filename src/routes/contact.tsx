@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowUpRight, Phone, Mail, MapPin, Clock, Instagram, MessageCircle, Check } from "lucide-react";
+import { ArrowUpRight, Phone, Mail, MapPin, Clock, Instagram, MessageCircle, Check, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Magnetic } from "@/components/site/Magnetic";
+import { GoogleReviewsBadge } from "@/components/site/GoogleReviewsBadge";
 import { SITE } from "@/lib/site/config";
 
 export const Route = createFileRoute("/contact")({
@@ -129,9 +130,32 @@ function Contact() {
                 <p className="text-xs text-muted-foreground">Your enquiry will be forwarded to our team via WhatsApp and email.</p>
               </form>
             )}
+
+            {!done && (
+              <div className="mt-10 pt-8 border-t border-border">
+                <div className="flex items-center gap-2 mb-3" aria-hidden>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-[oklch(0.82_0.17_85)] text-[oklch(0.82_0.17_85)]" strokeWidth={0} />
+                  ))}
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground ml-1">5.0 · 220+ reviews</span>
+                </div>
+                <p className="text-base md:text-lg text-foreground leading-relaxed max-w-xl">
+                  Don't take our word for it. Read 220+ verified reviews from our members on Google.
+                </p>
+                <a
+                  href={SITE.maps}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-electric-gradient hover:opacity-80 transition"
+                >
+                  Read Reviews on Google <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </div>
+            )}
           </div>
 
           <aside className="lg:col-span-5 lg:pl-8 space-y-6">
+            <GoogleReviewsBadge variant="card" className="w-full justify-start" />
             <div className="border border-border p-7 rounded-sm bg-carbon/30 backdrop-blur-sm">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-electric-gradient mb-5">Visit</p>
               <Row icon={<MapPin className="h-4 w-4" />} label={SITE.address} href={SITE.maps} />
