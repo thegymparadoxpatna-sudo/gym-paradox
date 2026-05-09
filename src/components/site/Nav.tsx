@@ -75,7 +75,8 @@ export function Nav() {
 
       {open && (
         <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl">
-          <div className="flex flex-col px-5 py-6 gap-1">
+          <div className="flex flex-col items-center px-5 py-6 gap-1">
+            <Logo size={80} className="mb-6" linked={false} />
             {NAV.map((n) => (
               <Link
                 key={n.to}
