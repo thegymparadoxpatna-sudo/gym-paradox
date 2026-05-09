@@ -83,13 +83,13 @@ function Home() {
             <p className="max-w-md text-sm md:text-base text-muted-foreground leading-relaxed">
               A premium performance club where discipline becomes freedom and struggle becomes strength. The Gym Paradox isn't another gym — it's an environment.
             </p>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               <Magnetic strength={0.18}>
-                <Link to="/contact" className="inline-flex items-center gap-2 btn-electric rounded-full px-7 py-4 font-mono text-[10px] uppercase tracking-[0.22em] text-primary-foreground">
+                <Link to="/contact" className="inline-flex items-center gap-2 btn-electric rounded-full px-6 sm:px-7 py-4 min-h-[48px] font-mono text-[10px] uppercase tracking-[0.22em] text-primary-foreground">
                   Book Free Trial <ArrowUpRight className="h-4 w-4" />
                 </Link>
               </Magnetic>
-              <Link to="/about" className="inline-flex items-center gap-2 border border-border rounded-full px-7 py-4 font-mono text-[10px] uppercase tracking-[0.22em] hover:border-electric transition">
+              <Link to="/about" className="inline-flex items-center gap-2 border border-border rounded-full px-6 sm:px-7 py-4 min-h-[48px] font-mono text-[10px] uppercase tracking-[0.22em] hover:border-electric transition">
                 The Story
               </Link>
             </div>
