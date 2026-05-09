@@ -100,7 +100,7 @@ function RootComponent() {
       <div className="min-h-screen flex flex-col">
         <ScrollProgress />
         <Nav />
-        <main className="flex-1">
+        <main className="flex-1 pb-24 md:pb-0">
           <PageTransition>
             <Outlet />
           </PageTransition>
