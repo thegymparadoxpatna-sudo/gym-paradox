@@ -6,14 +6,15 @@ type LogoProps = {
   linked?: boolean;
 };
 
-export function Logo({ size = 40, className = "", linked = true }: LogoProps) {
+export function Logo({ size, className = "", linked = true }: LogoProps) {
+  const sizeStyle = size ? { height: size, width: size } : undefined;
   const img = (
     <img
       src="/logo.png"
       alt="The Gym Paradox"
-      width={size}
-      height={size}
-      style={{ height: size, width: size }}
+      width={size ?? 40}
+      height={size ?? 40}
+      style={sizeStyle}
       className={`block object-contain transition-opacity duration-300 hover:opacity-85 ${className}`}
     />
   );
