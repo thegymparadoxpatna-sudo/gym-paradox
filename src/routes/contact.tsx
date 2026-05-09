@@ -168,7 +168,7 @@ function Contact() {
             <div className="aspect-[4/3] overflow-hidden border border-border rounded-sm">
               <iframe
                 src={SITE.mapsEmbed}
-                className="h-full w-full grayscale contrast-125"
+                className="h-full w-full"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Map"
