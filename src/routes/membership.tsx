@@ -18,6 +18,33 @@ export const Route = createFileRoute("/membership")({
     links: [
       { rel: "canonical", href: "https://gym-paradox.lovable.app/membership" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "The Gym Paradox Membership Tiers",
+          itemListElement: [
+            { name: "Essential", price: 3500 },
+            { name: "Performance", price: 5500 },
+            { name: "Elite", price: 9800 },
+            { name: "Founding", price: 52000 },
+          ].map((t, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "Offer",
+              name: t.name,
+              price: t.price,
+              priceCurrency: "INR",
+              availability: "https://schema.org/InStock",
+              url: "https://gym-paradox.lovable.app/membership",
+            },
+          })),
+        }),
+      },
+    ],
   }),
   component: Membership,
 });
