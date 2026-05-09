@@ -14,7 +14,7 @@ export const SITE = {
   instagram: "https://instagram.com/thegymparadox",
   instagramHandle: "@thegymparadox",
   maps: "https://maps.app.goo.gl/7LfgSJzoS8xZJRYu9",
-  mapsEmbed: "https://www.google.com/maps?q=The+Gym+Paradox+Patliputra+Colony+Patna&output=embed",
+  mapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6613.727257335742!2d85.10456719999999!3d25.629226599999992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed57e599a77a4d%3A0x8475413953e00dca!2sThe%20Gym%20Paradox!5e1!3m2!1sen!2sin!4v1778343117765!5m2!1sen!2sin",
 };
 
 export const NAV = [
