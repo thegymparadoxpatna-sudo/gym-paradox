@@ -8,8 +8,7 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noreferrer"
       aria-label="Chat on WhatsApp"
-      className="fixed right-4 md:right-5 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full gradient-electric text-primary-foreground shadow-electric hover:scale-105 active:scale-95 transition-transform"
-      style={{ bottom: "calc(env(safe-area-inset-bottom, 0px) + 6.5rem)" }}
+      className="fixed bottom-28 md:bottom-5 right-4 md:right-5 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full gradient-electric text-primary-foreground shadow-electric hover:scale-105 active:scale-95 transition-transform"
     >
       <MessageCircle className="h-6 w-6" />
       <span className="absolute inset-0 rounded-full animate-ping bg-electric/30" />
