@@ -8,6 +8,11 @@ export const Route = createFileRoute("/trainers")({
       { title: "Trainers · The Gym Paradox Patna" },
       { name: "description", content: "Certified strength coaches, boxing pros, and movement specialists. Meet the team behind The Gym Paradox." },
       { property: "og:title", content: "Trainers · The Gym Paradox" },
+      { property: "og:url", content: "https://gym-paradox.lovable.app/trainers" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://gym-paradox.lovable.app/trainers" },
     ],
   }),
   component: Trainers,

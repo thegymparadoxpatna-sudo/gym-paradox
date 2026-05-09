@@ -9,6 +9,11 @@ export const Route = createFileRoute("/gallery")({
       { title: "Gallery · The Gym Paradox Patna" },
       { name: "description", content: "Inside The Gym Paradox: facility, equipment, training, and member transformations." },
       { property: "og:title", content: "Gallery · The Gym Paradox" },
+      { property: "og:url", content: "https://gym-paradox.lovable.app/gallery" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://gym-paradox.lovable.app/gallery" },
     ],
   }),
   component: Gallery,

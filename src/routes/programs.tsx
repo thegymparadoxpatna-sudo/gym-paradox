@@ -10,6 +10,11 @@ export const Route = createFileRoute("/programs")({
       { name: "description", content: "Five disciplines under one roof. Strength training, Boxing & CrossFit, HIIT, Zumba & Aerobic, Personal Training." },
       { property: "og:title", content: "Programs · The Gym Paradox" },
       { property: "og:description", content: "Five disciplines. One standard. Pain pays off." },
+      { property: "og:url", content: "https://gym-paradox.lovable.app/programs" },
+      { property: "og:type", content: "website" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://gym-paradox.lovable.app/programs" },
     ],
   }),
   component: Programs,
