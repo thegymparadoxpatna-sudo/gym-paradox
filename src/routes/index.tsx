@@ -61,16 +61,16 @@ function Home() {
 
           <h1 className="font-display leading-[0.84] tracking-[-0.05em] text-balance" style={{ fontSize: "clamp(5rem, 14vw, 18rem)" }}>
             <motion.span
-              initial={{ opacity: 0, y: 80 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ y: 80 }}
+              animate={{ y: 0 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="block"
             >
               Pain
             </motion.span>
             <motion.span
-              initial={{ opacity: 0, y: 80 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ y: 80 }}
+              animate={{ y: 0 }}
               transition={{ duration: 1.2, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
               className="block"
             >
