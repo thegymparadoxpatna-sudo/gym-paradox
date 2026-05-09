@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Reveal } from "@/components/site/Reveal";
 import { Magnetic } from "@/components/site/Magnetic";
+import { GoogleReviewsBadge } from "@/components/site/GoogleReviewsBadge";
 
 export const Route = createFileRoute("/membership")({
   head: () => ({
@@ -107,6 +108,10 @@ function Membership() {
   return (
     <>
       <PageHeader eyebrow="Membership · 2026" title="Choose your" italic="standard." lede="Three tiers. One door. Every membership includes a free 3-day trial — walk in, train, decide." />
+
+      <div className="mx-auto max-w-[1400px] px-5 md:px-10 -mt-4 mb-10 flex justify-center">
+        <GoogleReviewsBadge variant="pill" />
+      </div>
 
       {/* Cycle toggle */}
       <div className="mx-auto max-w-[1400px] px-5 md:px-10 mb-14 flex justify-center">
