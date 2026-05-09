@@ -260,93 +260,87 @@ function Home() {
       {/* TESTIMONIALS */}
       <section className="relative py-20 md:py-32 lg:py-44">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
-          <div className="flex items-end justify-between mb-16">
-            <div>
-              <p className="eyebrow text-electric-gradient">04 — Voices</p>
-              <h2 className="mt-4 font-display text-5xl md:text-6xl tracking-[-0.03em]">From inside the <em className="display-italic">paradox.</em></h2>
-              <div className="mt-6">
-                <GoogleReviewsBadge variant="card" />
-              </div>
+          <div className="text-center mb-16 flex flex-col items-center">
+            <p className="eyebrow text-electric-gradient">04 — Voices</p>
+            <h2 className="mt-4 font-display text-5xl md:text-6xl tracking-[-0.03em]">From inside the <em className="display-italic">paradox.</em></h2>
+            <p className="mt-5 text-base text-muted-foreground max-w-xl">Real stories from real members who chose discipline over comfort.</p>
+            <div className="mt-7">
+              <GoogleReviewsBadge variant="card" />
             </div>
           </div>
-          <div className="space-y-16 md:space-y-24 max-w-5xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {[
               {
                 q: "It is rare to find a space that feels this premium while still fostering a serious training mindset. Whether you are focused on strength, conditioning, or general wellness, this is undoubtedly one of the finest places to train in the city. Highly recommended for those who value quality and consistency.",
-                pull: "It is rare to find a space that feels this premium while still fostering a serious training mindset.",
                 n: "Samyak Shrey",
-                meta: "Google Review · 2 days ago",
+                meta: "Member · 2 days ago",
                 localGuide: false,
-                featured: true,
+                img: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=200&h=200&q=80",
               },
               {
                 q: "It's rare to find a gym that balances premium equipment, disciplined training culture, and a genuinely motivating environment so well. From strength training to overall fitness and recovery, every aspect feels thoughtfully designed for people who are serious about improving themselves. The trainers are knowledgeable, the atmosphere is energetic, and the consistency in quality truly stands out. Easily one of the best places in the city to train and stay committed to your fitness goals. Highly recommended for anyone who values professionalism, results, and a positive workout experience.",
-                pull: "Thoughtfully designed for people who are serious about improving themselves.",
                 n: "Badrish Tiwari",
-                meta: "Google Review",
+                meta: "Member · Local Guide",
                 localGuide: true,
+                img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&h=200&q=80",
               },
               {
                 q: "One of the best gyms I have ever seen. New and advanced equipment to train all the body parts. Great positive and friendly environment. Great support by trainers to do right exercise of all body. Gym owner is friendly in nature and a great person. Great experience with The Gym Paradox.",
-                pull: "One of the best gyms I have ever seen.",
                 n: "Shardindu Tiwari",
-                meta: "Google Review",
+                meta: "Member · Local Guide",
                 localGuide: true,
+                img: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=200&h=200&q=80",
               },
               {
                 q: "Amazing gym with top-notch equipment and a very motivating environment. The trainers are highly professional, and the hygiene levels are excellent. Highly recommended for everyone!",
-                pull: "Top-notch equipment and a very motivating environment.",
                 n: "Devesh Ojha",
-                meta: "Google Review",
+                meta: "Member · Local Guide",
                 localGuide: true,
+                img: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=200&h=200&q=80",
               },
               {
                 q: "High-quality equipment and expert trainers make this gym a powerhouse for fitness results. Clean, motivating, and worth every penny.",
-                pull: "A powerhouse for fitness results.",
                 n: "Sushant Mishra",
-                meta: "Google Review",
+                meta: "Verified Google Review",
                 localGuide: false,
+                img: "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?auto=format&fit=crop&w=200&h=200&q=80",
               },
-            ].map((t, i) => {
-              const initial = t.n.charAt(0);
-              return (
-                <Reveal key={i} delay={i * 0.05}>
-                  <figure className="grid md:grid-cols-12 gap-6 md:gap-10 items-start">
-                    <div className="md:col-span-1">
-                      <Quote className="h-8 w-8 text-electric-gradient" strokeWidth={1.2} />
-                    </div>
-                    <div className="md:col-span-11">
-                      <div className="flex items-center gap-2 mb-4" aria-label="5 out of 5 stars">
-                        {Array.from({ length: 5 }).map((_, s) => (
-                          <Star key={s} className="h-3.5 w-3.5 fill-[oklch(0.82_0.17_85)] text-[oklch(0.82_0.17_85)]" strokeWidth={0} />
-                        ))}
-                        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground ml-1">5.0</span>
-                      </div>
-                      <blockquote className={`font-display ${t.featured ? "text-4xl md:text-6xl" : "text-3xl md:text-5xl"} leading-[1.15] tracking-[-0.025em] text-balance`}>
-                        "{t.pull}"
-                      </blockquote>
-                      {t.q !== t.pull && (
-                        <p className="mt-5 text-base text-muted-foreground leading-relaxed max-w-3xl">{t.q}</p>
-                      )}
-                      <figcaption className="mt-6 flex flex-wrap items-center gap-3 md:gap-4">
-                        <span aria-hidden className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-electric/40 bg-carbon/60 font-display text-base text-electric-gradient">
-                          {initial}
-                        </span>
-                        <span className="font-mono text-[10px] uppercase tracking-[0.22em]">{t.n}</span>
+            ].map((t, i) => (
+              <Reveal key={i} delay={i * 0.05}>
+                <figure className="relative h-full p-7 md:p-8 border border-border rounded-sm bg-carbon/40 backdrop-blur-md hover:border-electric/60 transition flex flex-col">
+                  <Quote aria-hidden className="absolute top-6 right-6 h-7 w-7 text-electric/30" strokeWidth={1.2} />
+                  <div className="flex items-center gap-1 mb-5" aria-label="5 out of 5 stars">
+                    {Array.from({ length: 5 }).map((_, s) => (
+                      <Star key={s} className="h-3.5 w-3.5 fill-[oklch(0.82_0.17_85)] text-[oklch(0.82_0.17_85)]" strokeWidth={0} />
+                    ))}
+                  </div>
+                  <blockquote className="text-base md:text-[15px] leading-relaxed text-foreground/90 flex-1">
+                    "{t.q}"
+                  </blockquote>
+                  <figcaption className="mt-6 pt-6 border-t border-border/60 flex items-center gap-3">
+                    <img
+                      src={t.img}
+                      alt={t.n}
+                      loading="lazy"
+                      className="h-11 w-11 rounded-full object-cover border border-electric/40"
+                    />
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span className="font-display text-base tracking-[-0.01em] truncate">{t.n}</span>
                         {t.localGuide && (
-                          <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-electric-gradient border border-electric/40 rounded-full px-2 py-0.5">
+                          <span className="font-mono text-[8px] uppercase tracking-[0.22em] text-electric-gradient border border-electric/40 rounded-full px-1.5 py-0.5 shrink-0">
                             Local Guide
                           </span>
                         )}
-                        <a href={SITE.maps} target="_blank" rel="noopener noreferrer" className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground transition">
-                          {t.meta} · Verified
-                        </a>
-                      </figcaption>
+                      </div>
+                      <a href={SITE.maps} target="_blank" rel="noopener noreferrer" className="font-mono text-[9px] uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground transition">
+                        {t.meta}
+                      </a>
                     </div>
-                  </figure>
-                </Reveal>
-              );
-            })}
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
           </div>
           <div className="mt-16 flex justify-center">
             <a href={SITE.maps} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground transition">
