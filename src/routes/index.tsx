@@ -252,9 +252,6 @@ function Home() {
                 </li>
               ))}
             </ul>
-            <Link to="/facilities" className="mt-10 inline-flex items-center gap-2 border border-border rounded-full px-6 py-3 font-mono text-[10px] uppercase tracking-[0.22em] hover:border-electric transition">
-              Tour the facility <ArrowUpRight className="h-4 w-4" />
-            </Link>
           </div>
         </div>
       </section>

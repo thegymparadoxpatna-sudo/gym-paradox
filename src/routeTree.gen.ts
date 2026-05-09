@@ -13,7 +13,6 @@ import { Route as TrainersRouteImport } from './routes/trainers'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as MembershipRouteImport } from './routes/membership'
 import { Route as GalleryRouteImport } from './routes/gallery'
-import { Route as FacilitiesRouteImport } from './routes/facilities'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -38,11 +37,6 @@ const GalleryRoute = GalleryRouteImport.update({
   path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
-const FacilitiesRoute = FacilitiesRouteImport.update({
-  id: '/facilities',
-  path: '/facilities',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -63,7 +57,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/facilities': typeof FacilitiesRoute
   '/gallery': typeof GalleryRoute
   '/membership': typeof MembershipRoute
   '/programs': typeof ProgramsRoute
@@ -73,7 +66,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/facilities': typeof FacilitiesRoute
   '/gallery': typeof GalleryRoute
   '/membership': typeof MembershipRoute
   '/programs': typeof ProgramsRoute
@@ -84,7 +76,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/facilities': typeof FacilitiesRoute
   '/gallery': typeof GalleryRoute
   '/membership': typeof MembershipRoute
   '/programs': typeof ProgramsRoute
@@ -96,7 +87,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
-    | '/facilities'
     | '/gallery'
     | '/membership'
     | '/programs'
@@ -106,7 +96,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
-    | '/facilities'
     | '/gallery'
     | '/membership'
     | '/programs'
@@ -116,7 +105,6 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
-    | '/facilities'
     | '/gallery'
     | '/membership'
     | '/programs'
@@ -127,7 +115,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  FacilitiesRoute: typeof FacilitiesRoute
   GalleryRoute: typeof GalleryRoute
   MembershipRoute: typeof MembershipRoute
   ProgramsRoute: typeof ProgramsRoute
@@ -164,13 +151,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/facilities': {
-      id: '/facilities'
-      path: '/facilities'
-      fullPath: '/facilities'
-      preLoaderRoute: typeof FacilitiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -199,7 +179,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  FacilitiesRoute: FacilitiesRoute,
   GalleryRoute: GalleryRoute,
   MembershipRoute: MembershipRoute,
   ProgramsRoute: ProgramsRoute,
