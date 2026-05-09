@@ -35,7 +35,7 @@ function Home() {
       {/* HERO */}
       <section ref={ref} className="relative h-[100svh] w-full overflow-hidden">
         <motion.div style={{ y }} className="absolute inset-0">
-          <img src={heroImg} alt="The Gym Paradox" className="h-full w-full object-cover" loading="eager" />
+          <img src={heroImg} alt="The Gym Paradox" className="h-full w-full object-cover" loading="eager" fetchPriority="high" decoding="async" />
           <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/40 to-background" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-transparent to-transparent" />
           <div className="absolute inset-0 grain opacity-50 mix-blend-overlay" />
