@@ -306,8 +306,8 @@ function Home() {
             {[
               "1571019613454-1cb2f99b2d8b","1534438327276-14e5300c3a48","1517836357463-d25dfeac3438","1581009146145-b5ef050c2e1e","1518611012118-696072aa579a","1549719386-74dfcbf7dbed",
             ].map((id) => (
-              <a key={id} href={SITE.instagram} className="aspect-square overflow-hidden group relative">
-                <img src={`https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=600&q=70`} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+              <a key={id} href={SITE.instagram} target="_blank" rel="noreferrer" aria-label="View on Instagram @thegymparadox" className="aspect-square overflow-hidden group relative">
+                <img src={`https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=600&q=70`} alt="The Gym Paradox Instagram post" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500" style={{ background: "var(--grad-electric-soft)" }} />
               </a>
             ))}
