@@ -94,10 +94,6 @@ function CrossLinks() {
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-electric-gradient">Coaches</p>
           <p className="mt-3 font-display text-2xl">Meet the trainers who run these programs</p>
         </Link>
-        <Link to="/facilities" className="border border-border p-6 rounded-sm hover:border-electric transition">
-          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-electric-gradient">Equipment</p>
-          <p className="mt-3 font-display text-2xl">The platforms, racks, and recovery zones</p>
-        </Link>
         <Link to="/membership" className="border border-border p-6 rounded-sm hover:border-electric transition">
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-electric-gradient">Membership</p>
           <p className="mt-3 font-display text-2xl">Pick a plan and book a free 3-day trial</p>
