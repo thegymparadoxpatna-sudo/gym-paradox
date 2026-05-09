@@ -14,7 +14,7 @@ import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { ExitIntent } from "@/components/site/ExitIntent";
 import { OfferBanner } from "@/components/site/OfferBanner";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
-import { Cursor } from "@/components/site/Cursor";
+
 import { MobileCTA } from "@/components/site/MobileCTA";
 import { PageTransition } from "@/components/site/PageTransition";
 import { SITE } from "@/lib/site/config";
@@ -196,7 +196,6 @@ function RootComponent() {
         <MobileCTA />
         <OfferBanner />
         <ExitIntent />
-        <Cursor />
       </div>
     </QueryClientProvider>
   );
