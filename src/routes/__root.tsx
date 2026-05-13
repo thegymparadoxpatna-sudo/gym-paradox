@@ -13,6 +13,7 @@ import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { ScrollProgress } from "@/components/site/ScrollProgress";
 import { PageTransition } from "@/components/site/PageTransition";
+import { RouteProgress } from "@/components/site/RouteProgress";
 import { DeferredWidgets } from "@/components/site/DeferredWidgets";
 import { SITE } from "@/lib/site/config";
 
@@ -189,6 +190,7 @@ function RootComponent() {
           Skip to content
         </a>
         <ScrollProgress />
+        <RouteProgress />
         <Nav />
         <main id="main-content" className="flex-1">
           <PageTransition>

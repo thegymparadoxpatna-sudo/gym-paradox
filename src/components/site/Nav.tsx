@@ -45,7 +45,7 @@ export function Nav() {
             <Link
               key={n.to}
               to={n.to}
-              className="group relative font-mono text-[13px] uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground transition-colors"
+              className="group relative font-mono text-[13px] uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground transition-colors active:opacity-60"
               activeProps={{ className: "text-foreground" }}
             >
               <span className="relative">
@@ -59,7 +59,7 @@ export function Nav() {
         <div className="flex items-center gap-3">
           <Link
             to="/contact"
-            className="hidden md:inline-flex items-center gap-2 rounded-full btn-electric px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] font-medium text-primary-foreground"
+            className="hidden md:inline-flex items-center gap-2 rounded-full btn-electric px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] font-medium text-primary-foreground transition-transform active:scale-95"
           >
             Book Free Trial <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
@@ -82,12 +82,12 @@ export function Nav() {
               <Link
                 key={n.to}
                 to={n.to}
-                className="font-display text-3xl py-3 min-h-[48px] flex items-center hover:text-electric-gradient transition"
+                className="font-display text-3xl py-3 min-h-[48px] flex items-center hover:text-electric-gradient transition active:opacity-60"
               >
                 {n.label}
               </Link>
             ))}
-            <Link to="/contact" className="mt-6 inline-flex items-center gap-2 btn-electric rounded-full px-7 py-4 font-mono text-[10px] uppercase tracking-[0.22em] text-primary-foreground">
+            <Link to="/contact" className="mt-6 inline-flex items-center gap-2 btn-electric rounded-full px-7 py-4 font-mono text-[10px] uppercase tracking-[0.22em] text-primary-foreground transition-transform active:scale-95">
               Book Free Trial <ArrowUpRight className="h-3.5 w-3.5" />
             </Link>
             <a href={SITE.whatsappHref} className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground py-2 min-h-[44px] inline-flex items-center">
