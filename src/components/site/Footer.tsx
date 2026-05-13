@@ -1,12 +1,32 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowUpRight, Instagram } from "lucide-react";
+import { ArrowUpRight, Instagram, Loader2 } from "lucide-react";
 import { NAV, SITE } from "@/lib/site/config";
 import { Logo } from "./Logo";
+import { submitToWeb3Forms, checkRateLimit, recordSubmission, EMAIL_REGEX } from "@/config/forms";
 
 export function Footer() {
   const [email, setEmail] = useState("");
   const [done, setDone] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [botcheck, setBotcheck] = useState("");
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError("");
+    if (!EMAIL_REGEX.test(email.trim())) { setError("Enter a valid email."); return; }
+    const rl = checkRateLimit("newsletter");
+    if (!rl.allowed) { setError(`Too many attempts. Try again in ${rl.minutesLeft} min.`); return; }
+    setLoading(true);
+    const res = await submitToWeb3Forms(
+      { subject: "📧 Newsletter Signup — The Gym Paradox", source: "Footer Newsletter", email },
+      { botcheck }
+    );
+    setLoading(false);
+    if (res.ok) { recordSubmission("newsletter"); setDone(true); }
+    else setError(res.error || "Couldn't subscribe. Try again.");
+  };
 
   return (
     <footer className="relative border-t border-border bg-ink overflow-hidden">
@@ -25,33 +45,31 @@ export function Footer() {
               Built for those who believe discipline is freedom.
             </p>
 
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                if (!email) return;
-                setDone(true);
-              }}
-              className="mt-10 max-w-md"
-            >
+            <form onSubmit={onSubmit} className="mt-10 max-w-md">
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground mb-3">Join the paradox list</p>
               {done ? (
                 <p className="text-sm text-electric-gradient">Welcome. Watch your inbox.</p>
               ) : (
-                <div className="relative flex items-center border-b border-border focus-within:border-electric transition">
-                  <input
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    type="email"
-                    inputMode="email"
-                    autoComplete="email"
-                    required
-                    placeholder="your@email.com"
-                    className="flex-1 min-w-0 bg-transparent py-3 min-h-[44px] text-base md:text-sm focus:outline-none placeholder:text-muted-foreground/50"
-                  />
-                  <button type="submit" className="px-3 min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-muted-foreground hover:text-foreground transition" aria-label="Subscribe">
-                    <ArrowUpRight className="h-4 w-4" />
-                  </button>
-                </div>
+                <>
+                  <div className="relative flex items-center border-b border-border focus-within:border-electric transition">
+                    <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, width: 0 }} checked={!!botcheck} onChange={(e) => setBotcheck(e.target.checked ? "1" : "")} />
+                    <input
+                      value={email}
+                      onChange={(e) => { setEmail(e.target.value); if (error) setError(""); }}
+                      disabled={loading}
+                      type="email"
+                      inputMode="email"
+                      autoComplete="email"
+                      required
+                      placeholder="your@email.com"
+                      className="flex-1 min-w-0 bg-transparent py-3 min-h-[44px] text-base md:text-sm focus:outline-none placeholder:text-muted-foreground/50 disabled:opacity-60"
+                    />
+                    <button type="submit" disabled={loading} className="px-3 min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-muted-foreground hover:text-foreground transition disabled:opacity-60" aria-label="Subscribe">
+                      {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowUpRight className="h-4 w-4" />}
+                    </button>
+                  </div>
+                  {error && <p className="mt-2 text-xs text-destructive">{error}</p>}
+                </>
               )}
             </form>
           </div>
