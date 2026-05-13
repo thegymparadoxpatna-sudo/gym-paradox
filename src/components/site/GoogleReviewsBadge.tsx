@@ -18,7 +18,6 @@ export function GoogleReviewsBadge({ variant = "pill", className = "" }: { varia
         href={SITE.maps}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="5.0 stars from over 220 verified Google reviews — read on Google Maps"
         className={`group inline-flex items-center gap-4 border border-border bg-carbon/40 backdrop-blur-sm rounded-sm px-5 py-4 hover:border-electric/60 transition ${className}`}
       >
         <div className="flex flex-col gap-1.5">
@@ -50,7 +49,6 @@ export function GoogleReviewsBadge({ variant = "pill", className = "" }: { varia
       href={SITE.maps}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="5.0 stars from over 220 verified Google reviews"
       className={`inline-flex items-center gap-2.5 rounded-full border border-border bg-carbon/40 backdrop-blur-sm px-4 py-2 hover:border-electric/60 transition ${className}`}
     >
       {stars}
