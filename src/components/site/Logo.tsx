@@ -30,7 +30,7 @@ export function Logo({ size, className = "", linked = true, withText = false, te
   ) : img;
   if (!linked) return content;
   return (
-    <Link to="/" aria-label="The Gym Paradox — Home" className="inline-flex items-center pr-2">
+    <Link to="/" className="inline-flex items-center pr-2">
       {content}
     </Link>
   );
