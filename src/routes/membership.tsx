@@ -1,47 +1,92 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
 import { Check, ArrowUpRight } from "lucide-react";
-import { motion } from "framer-motion";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Reveal } from "@/components/site/Reveal";
 import { Magnetic } from "@/components/site/Magnetic";
 import { GoogleReviewsBadge } from "@/components/site/GoogleReviewsBadge";
 
+const STANDARD_PLANS = [
+  { key: "monthly", label: "Monthly", price: 4999, per: "/ month", tag: "Flexible", duration: "P1M" },
+  { key: "quarterly", label: "Quarterly", price: 12999, per: "/ 3 months", tag: "Save ~₹2,000 vs monthly", duration: "P3M" },
+  { key: "halfyearly", label: "Half-Yearly", price: 18999, per: "/ 6 months", tag: "Save ₹10,995 vs monthly", duration: "P6M" },
+  { key: "yearly", label: "Yearly", price: 27999, per: "/ year", tag: "Save ₹31,989 vs monthly", duration: "P1Y", recommended: true },
+];
+
+const FOUNDING_PLANS = [
+  { key: "quarterly", label: "Quarterly", price: 10999, original: 12999, per: "/ 3 months", save: "Save ₹2,000", duration: "P3M" },
+  { key: "halfyearly", label: "Half-Yearly", price: 15499, original: 18999, per: "/ 6 months", save: "Save ₹3,500", duration: "P6M" },
+  { key: "yearly", label: "Yearly", price: 21999, original: 27999, per: "/ year", save: "Save ₹6,000", duration: "P1Y", popular: true },
+];
+
+const STANDARD_INCLUSIONS = [
+  "Full gym access",
+  "All group programs (HIIT, Zumba, Aerobic, Boxing, CrossFit)",
+  "Locker & changing facilities",
+  "All operating hours: 6 AM – 10 PM",
+  "Complimentary 3-day trial",
+];
+
+const FOUNDING_INCLUSIONS = [
+  ...STANDARD_INCLUSIONS,
+  "Locked-in pricing for life of membership",
+  "Founding member recognition",
+];
+
+const fmt = (n: number) => "₹" + n.toLocaleString("en-IN");
+
+const schemaOffers = [
+  ...STANDARD_PLANS.map((p) => ({
+    "@type": "Offer",
+    name: `Standard ${p.label}`,
+    price: p.price,
+    priceCurrency: "INR",
+    availability: "https://schema.org/InStock",
+    url: "https://gym-paradox.lovable.app/membership",
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: p.price,
+      priceCurrency: "INR",
+      billingDuration: p.duration,
+    },
+  })),
+  ...FOUNDING_PLANS.map((p) => ({
+    "@type": "Offer",
+    name: `Founding ${p.label}`,
+    price: p.price,
+    priceCurrency: "INR",
+    availability: "https://schema.org/InStock",
+    url: "https://gym-paradox.lovable.app/membership#founding",
+    eligibleCustomerType: "First 100 members",
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: p.price,
+      priceCurrency: "INR",
+      billingDuration: p.duration,
+    },
+  })),
+];
+
 export const Route = createFileRoute("/membership")({
   head: () => ({
     meta: [
       { title: "Membership · The Gym Paradox Patna" },
-      { name: "description", content: "Three founding tiers. Premium access. Patliputra, Patna. Book a free trial today." },
+      { name: "description", content: "One membership. Full access. Standard plans from ₹4,999/month and exclusive Founding pricing for the first 100 members." },
       { property: "og:title", content: "Membership · The Gym Paradox" },
       { property: "og:url", content: "https://gym-paradox.lovable.app/membership" },
       { property: "og:type", content: "website" },
     ],
-    links: [
-      { rel: "canonical", href: "https://gym-paradox.lovable.app/membership" },
-    ],
+    links: [{ rel: "canonical", href: "https://gym-paradox.lovable.app/membership" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ItemList",
-          name: "The Gym Paradox Membership Tiers",
-          itemListElement: [
-            { name: "Essential", price: 3500 },
-            { name: "Performance", price: 5500 },
-            { name: "Elite", price: 9800 },
-            { name: "Founding", price: 52000 },
-          ].map((t, i) => ({
+          name: "The Gym Paradox Membership Plans",
+          itemListElement: schemaOffers.map((o, i) => ({
             "@type": "ListItem",
             position: i + 1,
-            item: {
-              "@type": "Offer",
-              name: t.name,
-              price: t.price,
-              priceCurrency: "INR",
-              availability: "https://schema.org/InStock",
-              url: "https://gym-paradox.lovable.app/membership",
-            },
+            item: o,
           })),
         }),
       },
@@ -50,124 +95,122 @@ export const Route = createFileRoute("/membership")({
   component: Membership,
 });
 
-type Tier = {
-  name: string;
-  desc: string;
-  monthly: number;
-  quarterly: number;
-  annual: number;
-  inc: string[];
-  cta: string;
-  featured?: boolean;
-  founding?: boolean;
-};
-
-const TIERS: Tier[] = [
-  {
-    name: "Essential",
-    desc: "Open access to the floor and group programs.",
-    monthly: 3500, quarterly: 9800, annual: 35000,
-    inc: ["Full gym access", "Group classes (HIIT, Zumba, Aerobic)", "Locker & changing", "Open hours: 6am – 10pm"],
-    cta: "Start essential",
-  },
-  {
-    name: "Performance",
-    desc: "For members serious about progression.",
-    monthly: 5500, quarterly: 15000, annual: 52000,
-    inc: ["Everything in Essential", "Boxing & CrossFit programs", "Monthly assessment", "Priority class booking", "Recovery studio access"],
-    cta: "Choose performance",
-    featured: true,
-  },
-  {
-    name: "Elite",
-    desc: "Personalised. Programmed. Accountable.",
-    monthly: 9800, quarterly: 27500, annual: 95000,
-    inc: ["Everything in Performance", "Personal Training (8 sessions/mo)", "Nutrition programming", "Body comp tracking", "Guest passes (2/mo)"],
-    cta: "Go elite",
-  },
-  {
-    name: "Founding",
-    desc: "Locked launch pricing for the first 100 members.",
-    monthly: 0, quarterly: 0, annual: 52000,
-    inc: ["Performance tier, full year", "20% locked launch pricing", "Founding-member kit", "Anniversary upgrade"],
-    cta: "Become founding",
-    founding: true,
-  },
-];
-
-type Cycle = "monthly" | "quarterly" | "annual";
-
-function fmt(n: number) {
-  return "₹" + n.toLocaleString("en-IN");
-}
-
 function Membership() {
-  const [cycle, setCycle] = useState<Cycle>("monthly");
-  const labels: Record<Cycle, string> = { monthly: "/ month", quarterly: "/ quarter", annual: "/ year" };
-
   return (
     <>
-      <PageHeader eyebrow="Membership · 2026" title="Choose your" italic="standard." lede="Three tiers. One door. Every membership includes a free 3-day trial — walk in, train, decide." />
+      <PageHeader
+        eyebrow="Membership · 2026"
+        title="Choose your"
+        italic="standard."
+        lede="One membership. Full access. Every plan includes a complimentary 3-day trial — walk in, train, decide."
+      />
 
-      <div className="mx-auto max-w-[1400px] px-5 md:px-10 -mt-4 mb-10 flex justify-center">
+      <div className="mx-auto max-w-[1400px] px-5 md:px-10 -mt-4 mb-16 flex justify-center">
         <GoogleReviewsBadge variant="pill" />
       </div>
 
-      {/* Cycle toggle */}
-      <div className="mx-auto max-w-[1400px] px-5 md:px-10 mb-14 flex justify-center">
-        <div className="relative inline-flex items-center rounded-full border border-border bg-carbon/60 backdrop-blur-md p-1 font-mono text-[10px] uppercase tracking-[0.22em]">
-          {(["monthly", "quarterly", "annual"] as Cycle[]).map((c) => (
-            <button
-              key={c}
-              onClick={() => setCycle(c)}
-              className={`relative z-10 px-5 py-2.5 rounded-full transition-colors ${cycle === c ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}
-            >
-              {cycle === c && (
-                <motion.span layoutId="cycle-pill" className="absolute inset-0 rounded-full gradient-electric -z-10" transition={{ type: "spring", stiffness: 280, damping: 28 }} />
-              )}
-              {c}
-            </button>
-          ))}
-        </div>
-      </div>
+      {/* SECTION 1 — STANDARD */}
+      <section className="pb-16 md:pb-24">
+        <div className="mx-auto max-w-[1400px] px-5 md:px-10">
+          <Reveal>
+            <p className="eyebrow text-electric-gradient">01 — Standard Plans</p>
+            <h2 className="mt-4 font-display text-4xl md:text-6xl tracking-[-0.035em] leading-[0.95]">Standard Membership</h2>
+            <p className="mt-4 max-w-xl text-sm md:text-base text-muted-foreground leading-relaxed">
+              Choose the duration that fits your commitment. Full access, every plan.
+            </p>
+          </Reveal>
 
-      <section className="pb-16 md:pb-24 lg:pb-32">
-        <div className="mx-auto max-w-[1400px] px-5 md:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {TIERS.map((t, i) => {
-            const price = t.founding ? t.annual : t[cycle];
-            const showLabel = t.founding ? "/ year · founding" : labels[cycle];
-            return (
-              <Reveal key={t.name} delay={i * 0.07}>
-                <div className={`relative h-full p-7 md:p-8 border flex flex-col rounded-sm overflow-hidden bg-carbon/40 backdrop-blur-md transition hover:-translate-y-1 ${t.featured ? "border-electric/60" : t.founding ? "border-[oklch(0.74_0.16_55)]/50" : "border-border hover:border-foreground/30"}`}>
-                  {t.featured && <div className="absolute inset-0 -z-10 opacity-100" style={{ background: "var(--grad-electric-soft)" }} />}
-                  {t.founding && <span className="absolute top-4 right-4 inline-flex font-mono text-[9px] uppercase tracking-[0.22em] text-[oklch(0.74_0.16_55)] border border-[oklch(0.74_0.16_55)]/50 rounded-full px-2.5 py-1">Most popular</span>}
-                  {t.featured && <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-electric-gradient mb-3">Recommended</span>}
-                  <h3 className="font-display text-3xl tracking-[-0.025em]">{t.name}</h3>
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            {STANDARD_PLANS.map((p, i) => (
+              <Reveal key={p.key} delay={i * 0.06}>
+                <div className={`relative h-full p-7 md:p-8 border flex flex-col rounded-sm overflow-hidden bg-carbon/40 backdrop-blur-md transition hover:-translate-y-1 ${p.recommended ? "border-electric/60" : "border-border hover:border-foreground/30"}`}>
+                  {p.recommended && <div className="absolute inset-0 -z-10" style={{ background: "var(--grad-electric-soft)" }} />}
+                  {p.recommended && (
+                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-electric-gradient mb-3">Recommended</span>
+                  )}
+                  <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">{p.label}</p>
                   <div className="mt-5 flex items-baseline gap-2">
-                    <span className="font-display text-5xl tracking-[-0.04em]">{price ? fmt(price) : "—"}</span>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{showLabel}</span>
+                    <span className="font-display text-5xl tracking-[-0.04em]">{fmt(p.price)}</span>
                   </div>
-                  <p className="mt-3 text-sm text-muted-foreground">{t.desc}</p>
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{p.per}</p>
+                  <p className="mt-4 inline-flex w-fit text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground border border-border rounded-full px-2.5 py-1">{p.tag}</p>
                   <ul className="mt-6 space-y-3 flex-1">
-                    {t.inc.map((i) => (
-                      <li key={i} className="flex gap-3 text-sm">
-                        <Check className="h-4 w-4 shrink-0 text-electric-gradient mt-0.5" /> <span>{i}</span>
+                    {STANDARD_INCLUSIONS.map((it) => (
+                      <li key={it} className="flex gap-3 text-sm">
+                        <Check className="h-4 w-4 shrink-0 text-electric-gradient mt-0.5" /> <span>{it}</span>
                       </li>
                     ))}
                   </ul>
                   <Magnetic strength={0.1}>
-                    <Link to="/contact" className={`mt-8 inline-flex items-center justify-center gap-1.5 rounded-full w-full px-5 py-3 font-mono text-[10px] uppercase tracking-[0.22em] transition ${t.featured || t.founding ? "btn-electric text-primary-foreground" : "border border-border hover:border-electric"}`}>
-                      {t.cta} <ArrowUpRight className="h-3.5 w-3.5" />
+                    <Link to="/contact" className={`mt-8 inline-flex items-center justify-center gap-1.5 rounded-full w-full px-5 py-3 font-mono text-[10px] uppercase tracking-[0.22em] transition ${p.recommended ? "btn-electric text-primary-foreground" : "border border-border hover:border-electric"}`}>
+                      Book Free Trial <ArrowUpRight className="h-3.5 w-3.5" />
                     </Link>
                   </Magnetic>
                 </div>
               </Reveal>
-            );
-          })}
+            ))}
+          </div>
         </div>
+      </section>
 
-        <div className="mx-auto max-w-[1400px] px-5 md:px-10 mt-16 text-center">
-          <p className="text-sm text-muted-foreground">All memberships include a complimentary 3-day trial. No registration fee for founding members.</p>
+      {/* SECTION 2 — FOUNDING */}
+      <section id="founding" className="relative py-20 md:py-28 border-y border-electric/20 overflow-hidden scroll-mt-24">
+        <div className="absolute inset-0 -z-10 opacity-60" style={{ background: "var(--grad-electric-soft)" }} />
+        <div className="absolute inset-0 -z-10 gradient-mesh opacity-40" />
+        <div className="mx-auto max-w-[1400px] px-5 md:px-10">
+          <Reveal>
+            <p className="eyebrow text-electric-gradient">02 — Founding Member Pricing</p>
+            <h2 className="mt-4 font-display text-4xl md:text-6xl tracking-[-0.035em] leading-[0.95]">
+              First 100 Members <em className="display-italic text-electric-gradient">Exclusive.</em>
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">
+              Locked-in launch pricing for our founding 100 members. Once we reach 100 active memberships, this offer ends — permanently.
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            {FOUNDING_PLANS.map((p, i) => (
+              <Reveal key={p.key} delay={i * 0.06}>
+                <div className={`relative h-full p-7 md:p-8 border flex flex-col rounded-sm overflow-hidden bg-ink/80 backdrop-blur-md transition hover:-translate-y-1 ${p.popular ? "border-electric" : "border-electric/40 hover:border-electric/70"}`}>
+                  {p.popular && <div className="absolute inset-0 -z-10" style={{ background: "var(--grad-electric-soft)" }} />}
+                  {p.popular && (
+                    <span className="absolute top-4 right-4 inline-flex font-mono text-[9px] uppercase tracking-[0.22em] text-primary-foreground gradient-electric rounded-full px-2.5 py-1">Most popular</span>
+                  )}
+                  <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-electric-gradient">{p.label}</p>
+                  <div className="mt-5 flex items-baseline gap-3">
+                    <span className="font-display text-5xl tracking-[-0.04em]">{fmt(p.price)}</span>
+                    <span className="font-mono text-sm text-muted-foreground line-through">{fmt(p.original)}</span>
+                  </div>
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{p.per}</p>
+                  <p className="mt-4 inline-flex w-fit text-[11px] font-mono uppercase tracking-[0.18em] text-electric-gradient border border-electric/40 rounded-full px-2.5 py-1">{p.save}</p>
+                  <ul className="mt-6 space-y-3 flex-1">
+                    {FOUNDING_INCLUSIONS.map((it) => (
+                      <li key={it} className="flex gap-3 text-sm">
+                        <Check className="h-4 w-4 shrink-0 text-electric-gradient mt-0.5" /> <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Magnetic strength={0.1}>
+                    <Link to="/contact" className="mt-8 inline-flex items-center justify-center gap-1.5 rounded-full w-full px-5 py-3 font-mono text-[10px] uppercase tracking-[0.22em] btn-electric text-primary-foreground">
+                      Claim Founding Spot <ArrowUpRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </Magnetic>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3 — FOOTER NOTE */}
+      <section className="py-16 md:py-24">
+        <div className="mx-auto max-w-3xl px-5 md:px-10 text-center space-y-5">
+          <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+            All memberships include a complimentary 3-day trial. No registration fees. Cash, UPI, and card payments accepted at the gym.
+          </p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/70 leading-relaxed">
+            Founding member pricing is limited to the first 100 active members and is non-transferable. Prices subject to change for new members once founding tier is filled.
+          </p>
         </div>
       </section>
     </>
