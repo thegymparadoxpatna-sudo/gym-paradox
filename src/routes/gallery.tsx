@@ -12,6 +12,10 @@ import pecFly from "@/assets/equipment/pec-fly.webp";
 import latPulldown from "@/assets/equipment/lat-pulldown.webp";
 import chestPress from "@/assets/equipment/chest-press.webp";
 import spinBike from "@/assets/equipment/spin-bike.webp";
+import treadmill from "@/assets/equipment/treadmill.webp";
+import elliptical from "@/assets/equipment/elliptical.webp";
+import uprightBike from "@/assets/equipment/upright-bike.webp";
+import recumbentBike from "@/assets/equipment/recumbent-bike.webp";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -40,6 +44,10 @@ const IMG: { src: string; alt: string }[] = [
   { src: latPulldown, alt: "Lat Pulldown — RS-2201-MB" },
   { src: chestPress, alt: "Chest Press — RS-2301-MB" },
   { src: spinBike, alt: "LeMond Pro Spin Bike — L-15300-A" },
+  { src: treadmill, alt: "Freemotion REFLEX™ Treadmill — t10.9b" },
+  { src: elliptical, alt: "Freemotion Elliptical — e10.9b (84422)" },
+  { src: uprightBike, alt: "Freemotion Upright Bike — u10.9b (82422)" },
+  { src: recumbentBike, alt: "Freemotion Recumbent Bike — r10.9b (82522)" },
 ];
 
 function Gallery() {
