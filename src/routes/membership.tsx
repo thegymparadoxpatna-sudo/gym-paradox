@@ -159,9 +159,9 @@ function Membership() {
         <div className="absolute inset-0 -z-10 gradient-mesh opacity-40" />
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
           <Reveal>
-            <p className="eyebrow text-electric-gradient">02 — Founding Member Pricing</p>
+            <p className="eyebrow text-electric-gradient" style={{ filter: "brightness(1.2) saturate(1.2)", textShadow: "0 0 24px oklch(0.72 0.22 256 / 0.35)" }}>02 — Founding Member Pricing</p>
             <h2 className="mt-4 font-display text-4xl md:text-6xl tracking-[-0.035em] leading-[0.95]">
-              First 100 Members <em className="display-italic text-electric-gradient">Exclusive.</em>
+              First 100 Members <em className="display-italic text-electric-gradient">Exclusive</em><span className="text-electric-gradient">.</span>
             </h2>
             <p className="mt-4 max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">
               Locked-in launch pricing for our founding 100 members. Once we reach 100 active memberships, this offer ends — permanently.

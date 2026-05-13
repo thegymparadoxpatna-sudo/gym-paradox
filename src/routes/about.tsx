@@ -58,7 +58,7 @@ function About() {
         <div className="absolute inset-0 aurora opacity-40 pointer-events-none" />
         <div className="relative mx-auto max-w-[1400px] px-5 md:px-10 text-center">
           <h2 className="font-display leading-[0.85] tracking-[-0.05em]" style={{ fontSize: "clamp(4rem, 12vw, 14rem)" }}>
-            Discipline<br /><em className="display-italic text-electric-gradient">is freedom.</em>
+            Discipline<br /><em className="display-italic text-electric-gradient">is freedom</em><span className="text-electric-gradient">.</span>
           </h2>
           <Magnetic strength={0.18}>
             <Link to="/contact" className="mt-12 inline-flex items-center gap-2 btn-electric rounded-full px-8 py-4 font-mono text-[10px] uppercase tracking-[0.22em] text-primary-foreground">

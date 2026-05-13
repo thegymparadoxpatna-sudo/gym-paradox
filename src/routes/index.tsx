@@ -75,7 +75,7 @@ function Home() {
               transition={{ duration: 1.2, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
               className="block"
             >
-              <em className="display-italic text-electric-gradient">pays off.</em>
+              <em className="display-italic text-electric-gradient">pays off</em><span className="text-electric-gradient">.</span>
             </motion.span>
           </h1>
 
@@ -399,7 +399,7 @@ function Home() {
           <div className="relative z-10 mx-auto h-full max-w-[1400px] px-5 md:px-10 flex flex-col justify-center items-center text-center">
             <p className="eyebrow text-electric-gradient">Open membership · 2026</p>
             <h2 className="mt-6 font-display leading-[0.85] tracking-[-0.05em]" style={{ fontSize: "clamp(4rem, 12vw, 16rem)" }}>
-              Begin the<br /><em className="display-italic text-electric-gradient">paradox.</em>
+              Begin the<br /><em className="display-italic text-electric-gradient">paradox</em><span className="text-electric-gradient">.</span>
             </h2>
             <Magnetic strength={0.2}>
               <Link to="/contact" className="mt-12 inline-flex items-center gap-2 btn-electric rounded-full px-9 py-5 font-mono text-[10px] uppercase tracking-[0.22em] text-primary-foreground">
