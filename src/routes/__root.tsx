@@ -132,7 +132,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16.png" },
       { rel: "apple-touch-icon", sizes: "180x180", href: "/logo-180.png" },
       { rel: "manifest", href: "/manifest.json" },
-      { rel: "canonical", href: SITE_URL },
       { rel: "preconnect", href: "https://cdn.gpteng.co", crossOrigin: "anonymous" },
       { rel: "preconnect", href: "https://images.unsplash.com", crossOrigin: "anonymous" },
       { rel: "dns-prefetch", href: "https://images.unsplash.com" },
