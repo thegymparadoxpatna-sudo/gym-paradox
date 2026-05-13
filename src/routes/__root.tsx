@@ -17,7 +17,7 @@ import { RouteProgress } from "@/components/site/RouteProgress";
 import { DeferredWidgets } from "@/components/site/DeferredWidgets";
 import { SITE } from "@/lib/site/config";
 
-const SITE_URL = "https://gym-paradox.lovable.app";
+const SITE_URL = "https://thegymparadox.com";
 const OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 // Replace at deploy: set VITE_GA_MEASUREMENT_ID and VITE_META_PIXEL_ID env vars.

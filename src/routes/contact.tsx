@@ -14,11 +14,11 @@ export const Route = createFileRoute("/contact")({
       { title: "Enquire · Book Free Trial · The Gym Paradox Patna" },
       { name: "description", content: "Visit us in Patliputra, Patna. Book a complimentary 3-day trial. Open 6am – 10pm, all days." },
       { property: "og:title", content: "Enquire · The Gym Paradox" },
-      { property: "og:url", content: "https://gym-paradox.lovable.app/contact" },
+      { property: "og:url", content: "https://thegymparadox.com/contact" },
       { property: "og:type", content: "website" },
     ],
     links: [
-      { rel: "canonical", href: "https://gym-paradox.lovable.app/contact" },
+      { rel: "canonical", href: "https://thegymparadox.com/contact" },
     ],
     scripts: [
       {
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/contact")({
           "@context": "https://schema.org",
           "@type": "ContactPage",
           name: "Enquire · The Gym Paradox",
-          url: "https://gym-paradox.lovable.app/contact",
+          url: "https://thegymparadox.com/contact",
           mainEntity: {
             "@type": "HealthClub",
             name: "The Gym Paradox",
