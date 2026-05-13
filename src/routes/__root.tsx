@@ -20,8 +20,8 @@ import { SITE } from "@/lib/site/config";
 const SITE_URL = "https://thegymparadox.com";
 const OG_IMAGE = `${SITE_URL}/og-image.png`;
 
-// Replace at deploy: set VITE_GA_MEASUREMENT_ID and VITE_META_PIXEL_ID env vars.
-const GA_ID = (import.meta as any).env?.VITE_GA_MEASUREMENT_ID as string | undefined;
+// GA4 Measurement ID. Override via VITE_GA_MEASUREMENT_ID env var if needed.
+const GA_ID = ((import.meta as any).env?.VITE_GA_MEASUREMENT_ID as string | undefined) || "G-D21P41JFT7";
 const PIXEL_ID = (import.meta as any).env?.VITE_META_PIXEL_ID as string | undefined;
 
 const ORG_JSONLD = {
