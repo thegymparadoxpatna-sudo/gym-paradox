@@ -323,7 +323,7 @@ function Home() {
                 <figure className="relative h-full p-7 md:p-8 border border-border rounded-sm bg-carbon/40 backdrop-blur-md hover:border-electric/60 transition flex flex-col">
                   <Quote aria-hidden className="absolute top-6 right-6 h-7 w-7 text-electric/30" strokeWidth={1.2} />
                   <div className="flex items-center gap-2 mb-5">
-                    <div className="flex items-center gap-1" aria-label="5 out of 5 stars">
+                    <div role="img" className="flex items-center gap-1" aria-label="5 out of 5 stars">
                       {Array.from({ length: 5 }).map((_, s) => (
                         <Star key={s} className="h-3.5 w-3.5 fill-[oklch(0.82_0.17_85)] text-[oklch(0.82_0.17_85)]" strokeWidth={0} />
                       ))}
