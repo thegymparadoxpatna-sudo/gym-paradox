@@ -24,7 +24,7 @@ export const NAV = [
   { to: "/trainers", label: "Trainers" },
   { to: "/membership", label: "Membership" },
   { to: "/gallery", label: "Gallery" },
-  { to: "/contact", label: "Enquire" },
+  { to: "/contact", label: "Contact" },
 ] as const;
 
 export const TRUST_ROW = [
