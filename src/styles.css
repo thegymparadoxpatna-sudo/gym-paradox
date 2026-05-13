@@ -8,7 +8,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-display: "Fraunces Variable", "Fraunces", "Times New Roman", serif;
+  /* TODO: Replace with Helvetica Now Display once font files are licensed and provided by client */
+  --font-display: "Helvetica Now Display", "Neue Haas Grotesk Display Pro", "Inter Display", "Inter Variable", "Inter", system-ui, sans-serif;
+  --font-display-serif: "Fraunces Variable", "Fraunces", "Times New Roman", serif;
   --font-sans: "Inter Variable", "Inter", system-ui, sans-serif;
   --font-mono: "Geist Mono Variable", "Geist Mono", ui-monospace, monospace;
   --color-background: var(--background);
@@ -98,7 +100,7 @@
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     letter-spacing: -0.025em;
-    font-feature-settings: "ss01";
+    font-feature-settings: "ss01", "cv11";
   }
   /* Prevent iOS zoom on focus: inputs/selects/textareas need >= 16px on mobile */
   @media (max-width: 767px) {
@@ -118,14 +120,14 @@
 }
 
 @layer utilities {
-  .font-display { font-family: var(--font-display); font-variation-settings: "opsz" 144, "SOFT" 30; }
+  .font-display { font-family: var(--font-display); font-feature-settings: "ss01", "cv11"; }
   .font-sans { font-family: var(--font-sans); }
   .font-mono { font-family: var(--font-mono); }
   .text-balance { text-wrap: balance; }
   .text-pretty { text-wrap: pretty; }
   .display-italic {
     font-style: italic;
-    font-family: var(--font-display);
+    font-family: var(--font-display-serif);
     font-variation-settings: "opsz" 144, "SOFT" 100;
     letter-spacing: -0.04em;
   }

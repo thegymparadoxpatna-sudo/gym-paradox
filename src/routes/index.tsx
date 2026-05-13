@@ -60,7 +60,7 @@ function Home() {
             <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-electric-gradient">Est. 2026 · Patliputra, Patna</span>
           </motion.div>
 
-          <h1 className="font-display leading-[0.84] tracking-[-0.05em] text-balance" style={{ fontSize: "clamp(5rem, 14vw, 18rem)" }}>
+          <h1 className="font-display leading-[0.86] tracking-[-0.04em] text-balance" style={{ fontSize: "clamp(3rem, 9vw, 11rem)" }}>
             <motion.span
               initial={{ y: 80 }}
               animate={{ y: 0 }}
