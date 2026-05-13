@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /api/
 
-Sitemap: https://gym-paradox.lovable.app/sitemap.xml
+Sitemap: https://thegymparadox.com/sitemap.xml

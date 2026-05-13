@@ -10,11 +10,11 @@ export const Route = createFileRoute("/about")({
       { title: "The Paradox · Our Story · The Gym Paradox Patna" },
       { name: "description", content: "The story behind The Gym Paradox. Pain pays off. Discipline is freedom. Built in Patna, 2026." },
       { property: "og:title", content: "The Paradox · The Gym Paradox" },
-      { property: "og:url", content: "https://gym-paradox.lovable.app/about" },
+      { property: "og:url", content: "https://thegymparadox.com/about" },
       { property: "og:type", content: "website" },
     ],
     links: [
-      { rel: "canonical", href: "https://gym-paradox.lovable.app/about" },
+      { rel: "canonical", href: "https://thegymparadox.com/about" },
     ],
   }),
   component: About,

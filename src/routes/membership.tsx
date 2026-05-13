@@ -41,7 +41,7 @@ const schemaOffers = [
     price: p.price,
     priceCurrency: "INR",
     availability: "https://schema.org/InStock",
-    url: "https://gym-paradox.lovable.app/membership",
+    url: "https://thegymparadox.com/membership",
     priceSpecification: {
       "@type": "UnitPriceSpecification",
       price: p.price,
@@ -55,7 +55,7 @@ const schemaOffers = [
     price: p.price,
     priceCurrency: "INR",
     availability: "https://schema.org/InStock",
-    url: "https://gym-paradox.lovable.app/membership#founding",
+    url: "https://thegymparadox.com/membership#founding",
     eligibleCustomerType: "First 100 members",
     priceSpecification: {
       "@type": "UnitPriceSpecification",
@@ -72,10 +72,10 @@ export const Route = createFileRoute("/membership")({
       { title: "Membership · The Gym Paradox Patna" },
       { name: "description", content: "One membership. Full access. Standard plans from ₹4,999/month and exclusive Founding pricing for the first 100 members." },
       { property: "og:title", content: "Membership · The Gym Paradox" },
-      { property: "og:url", content: "https://gym-paradox.lovable.app/membership" },
+      { property: "og:url", content: "https://thegymparadox.com/membership" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "https://gym-paradox.lovable.app/membership" }],
+    links: [{ rel: "canonical", href: "https://thegymparadox.com/membership" }],
     scripts: [
       {
         type: "application/ld+json",
