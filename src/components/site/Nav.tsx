@@ -45,7 +45,7 @@ export function Nav() {
             <Link
               key={n.to}
               to={n.to}
-              className="group relative font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground transition-colors"
+              className="group relative font-mono text-[13px] uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground transition-colors"
               activeProps={{ className: "text-foreground" }}
             >
               <span className="relative">
