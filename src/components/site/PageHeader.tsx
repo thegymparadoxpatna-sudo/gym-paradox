@@ -1,6 +1,8 @@
 import { Reveal } from "./Reveal";
 
 export function PageHeader({ eyebrow, title, italic, lede, image }: { eyebrow: string; title: string; italic?: string; lede?: string; image?: string }) {
+  const italicHasPeriod = italic?.endsWith(".");
+  const italicCore = italicHasPeriod ? italic!.slice(0, -1) : italic;
   return (
     <section className="relative pt-32 md:pt-48 pb-12 md:pb-24 overflow-hidden">
       {image && (
@@ -15,7 +17,7 @@ export function PageHeader({ eyebrow, title, italic, lede, image }: { eyebrow: s
         <Reveal>
           <p className="eyebrow text-electric-gradient">{eyebrow}</p>
           <h1 className="mt-6 font-display text-[14vw] md:text-[8vw] leading-[0.9] md:leading-[0.86] tracking-[-0.035em] md:tracking-[-0.045em] text-balance">
-            {title}{italic && <> <em className="display-italic text-electric-gradient">{italic}</em></>}
+            {title}{italic && <> <em className="display-italic text-electric-gradient">{italicCore}</em>{italicHasPeriod && <span className="text-electric-gradient">.</span>}</>}
           </h1>
           {lede && <p className="mt-6 md:mt-8 max-w-2xl text-base md:text-lg text-muted-foreground leading-[1.7] md:leading-relaxed">{lede}</p>}
         </Reveal>
