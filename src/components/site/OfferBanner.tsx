@@ -19,10 +19,10 @@ export function OfferBanner() {
             <Sparkles className="h-4 w-4 text-primary-foreground" />
           </div>
           <div className="flex-1 min-w-0">
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-electric-gradient">Founding offer</p>
-            <p className="mt-1 text-sm leading-snug">20% off the first 100 annual memberships.</p>
-            <Link to="/membership" className="mt-2 inline-flex items-center gap-1 text-xs font-medium underline underline-offset-4 decoration-electric/60 hover:decoration-electric">
-              Claim before it ends
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-electric-gradient">First 100 Members · Founding Offer</p>
+            <p className="mt-1 text-sm leading-snug">Save up to ₹6,000 on annual memberships. Locked pricing for founding members.</p>
+            <Link to="/membership" hash="founding" className="mt-2 inline-flex items-center gap-1 text-xs font-medium underline underline-offset-4 decoration-electric/60 hover:decoration-electric">
+              View Founding Plans
             </Link>
           </div>
           <button onClick={() => { setOpen(false); sessionStorage.setItem("tgp-offer-dismissed", "1"); }} aria-label="Dismiss" className="text-muted-foreground hover:text-foreground">
