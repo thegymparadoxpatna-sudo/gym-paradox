@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
-import { X, Sparkles } from "lucide-react";
+import { X, Sparkles, Loader2, Check, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { SITE } from "@/lib/site/config";
 import ctaImg from "@/assets/cta.jpg";
+import { submitToWeb3Forms, checkRateLimit, recordSubmission, whatsappSuccessHref, PHONE_REGEX } from "@/config/forms";
 
 export function ExitIntent() {
   const [open, setOpen] = useState(false);
   const [shown, setShown] = useState(false);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [botcheck, setBotcheck] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -20,6 +26,29 @@ export function ExitIntent() {
     const t = setTimeout(() => document.addEventListener("mouseout", handler), 8000);
     return () => { clearTimeout(t); document.removeEventListener("mouseout", handler); };
   }, [shown]);
+
+  useEffect(() => {
+    if (!success) return;
+    const t = setTimeout(() => setOpen(false), 4000);
+    return () => clearTimeout(t);
+  }, [success]);
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError("");
+    if (!name || name.trim().length < 2) { setError("Please enter your name."); return; }
+    if (!PHONE_REGEX.test(phone.trim())) { setError("Enter a valid Indian mobile number."); return; }
+    const rl = checkRateLimit("exit-intent");
+    if (!rl.allowed) { setError(`Too many attempts. Try again in ${rl.minutesLeft} min.`); return; }
+    setLoading(true);
+    const res = await submitToWeb3Forms(
+      { subject: "🎯 3-Day Trial Request — The Gym Paradox", source: "Exit Intent Popup", name, phone },
+      { botcheck }
+    );
+    setLoading(false);
+    if (res.ok) { recordSubmission("exit-intent"); setSuccess(true); }
+    else setError(res.error || "Couldn't send. Please try again.");
+  };
 
   return (
     <AnimatePresence>
@@ -61,16 +90,25 @@ export function ExitIntent() {
                 <p className="mt-4 text-sm text-muted-foreground">
                   Claim a complimentary 3-day pass at The Gym Paradox. Walk in, train, taste the standard.
                 </p>
-                <form
-                  onSubmit={(e) => { e.preventDefault(); const f = new FormData(e.currentTarget); window.location.href = `${SITE.whatsappHref}?text=${encodeURIComponent(`Hi, I'd like to claim the 3-Day Free Pass. Name: ${f.get("name")}, Phone: ${f.get("phone")}`)}`; }}
-                  className="mt-6 space-y-3"
-                >
-                  <input name="name" required placeholder="Your name" className="w-full bg-transparent border border-border rounded-sm px-4 py-3.5 text-sm focus:outline-none focus:border-electric transition" />
-                  <input name="phone" required placeholder="Phone number" className="w-full bg-transparent border border-border rounded-sm px-4 py-3.5 text-sm focus:outline-none focus:border-electric transition" />
-                  <button type="submit" className="w-full btn-electric text-primary-foreground rounded-full py-3.5 font-mono text-[10px] uppercase tracking-[0.22em]">
-                    Claim My 3-Day Pass
-                  </button>
-                </form>
+                {success ? (
+                  <div className="mt-6 border border-electric/40 bg-carbon/40 p-6 rounded-sm text-center">
+                    <div className="mx-auto h-10 w-10 rounded-full gradient-electric inline-flex items-center justify-center"><Check className="h-5 w-5 text-primary-foreground" strokeWidth={2.5} /></div>
+                    <p className="mt-3 text-sm">Thanks {name}! We'll be in touch shortly.</p>
+                    <a href={whatsappSuccessHref(name)} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-2 btn-electric text-primary-foreground rounded-full px-6 py-3 font-mono text-[10px] uppercase tracking-[0.22em]">
+                      Continue on WhatsApp <ArrowUpRight className="h-4 w-4" />
+                    </a>
+                  </div>
+                ) : (
+                  <form onSubmit={onSubmit} className="mt-6 space-y-3">
+                    {error && <p className="text-xs text-destructive">{error}</p>}
+                    <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, width: 0 }} checked={!!botcheck} onChange={(e) => setBotcheck(e.target.checked ? "1" : "")} />
+                    <input value={name} onChange={(e) => setName(e.target.value)} disabled={loading} required placeholder="Your name" autoComplete="name" className="w-full bg-transparent border border-border rounded-sm px-4 py-3.5 text-sm focus:outline-none focus:border-electric transition disabled:opacity-60" />
+                    <input value={phone} onChange={(e) => setPhone(e.target.value)} disabled={loading} required type="tel" inputMode="tel" autoComplete="tel" placeholder="Phone number" className="w-full bg-transparent border border-border rounded-sm px-4 py-3.5 text-sm focus:outline-none focus:border-electric transition disabled:opacity-60" />
+                    <button type="submit" disabled={loading} className="w-full inline-flex items-center justify-center gap-2 btn-electric text-primary-foreground rounded-full py-3.5 font-mono text-[10px] uppercase tracking-[0.22em] disabled:opacity-70">
+                      {loading ? (<>Sending… <Loader2 className="h-4 w-4 animate-spin" /></>) : "Claim My 3-Day Pass"}
+                    </button>
+                  </form>
+                )}
               </div>
             </div>
           </motion.div>
