@@ -1,48 +1,55 @@
-## Problem
+## Goal
 
-Clicking any nav link or in-page CTA feels unresponsive for ~1 second, causing users to double-click. Audit shows three concrete causes — none are network latency.
+Re-align the visual system to the official Brand Identity doc and dial the entire site down: smaller display sizes, lighter weights, more whitespace. Less shouting, more premium.
 
-### Root causes
+## Brand reference (from the PDF)
 
-1. **`src/components/site/PageTransition.tsx`** — Uses `<AnimatePresence mode="wait">` with a 0.55s exit + 0.55s enter. `mode="wait"` blocks the new route from rendering until the old one finishes its 550ms exit animation. Effective perceived delay: **~550–1100ms** on every navigation, even when the destination route is already in memory. This is the dominant cause.
+- **Color:** Royal Performance Blue `#204CA1`, Pure White `#FFFFFF`, Pure Black `#000000`
+- **Typography:** Helvetica Now Display (already first in our font stack — keep)
+- **Personality:** Bold, Premium, Modern — but expressed through restraint, not size
 
-2. **No link preloading** — `defaultPreload` is not set on the router, so route chunks (and any loader data) are fetched only after the click. Combined with cause #1, the user sees nothing happen.
+## Changes
 
-3. **No pending indicator** — There's a `ScrollProgress` (scroll-based) but no router-pending bar, so during the dead time there's zero visual feedback that a click registered.
+### 1. Color tokens (`src/styles.css`)
+- Replace the vivid `oklch(0.66 0.22 256)` electric blue with the brand `#204CA1` (≈ `oklch(0.42 0.16 264)`).
+- Add a slightly brighter sibling for hover/glow only (not the base), so the brand blue stays the hero.
+- Rebuild `--grad-electric`, `--grad-aurora`, `--grad-mesh`, `--shadow-electric` around the new blue at lower opacity (drop from ~0.55 → ~0.35 shadow alpha; mesh from 0.22 → 0.14).
+- Keep background obsidian, foreground bone — those already match the brand's premium dark register.
 
-Minor: nav links and CTAs have no `:active` state styling, so the click itself doesn't even flash.
+### 2. Typography scale — lower the volume
+Currently hero/page headers use `text-[14vw] md:text-[8vw]` and section headings hit 7–9vw. Pull everything down ~25–30%:
+- Hero (`index.tsx`): `text-[14vw] md:text-[8vw]` → `text-[10vw] md:text-[6vw]`, weight 600 → 500, tracking `-0.045em` → `-0.03em`.
+- `PageHeader.tsx`: `text-[14vw] md:text-[8vw]` → `text-[10vw] md:text-[5.5vw]`.
+- Large section headers across pages: drop one step (e.g. `text-7xl md:text-9xl` → `text-5xl md:text-7xl`).
+- Body lede: keep size, but raise line-height for breathing room.
+- Eyebrow: keep mono micro-label (already restrained, on-brand).
 
-## Fix
+### 3. Weight & emphasis
+- Replace blanket `font-bold` / heavy display usage with `font-medium` (500) for headings, `font-semibold` (600) only for true emphasis.
+- Reduce the use of `text-electric-gradient` on every headline — keep it for one accent word per section, not whole H1s. The brand wants confidence, not glitter.
+- Soften `btn-electric` shadow (`-20px / 0.55` → `-25px / 0.30`) and remove the hover translate-Y to feel more premium-still vs. bouncy.
 
-### 1. Rewrite `src/components/site/PageTransition.tsx`
-- Remove `mode="wait"`. Let the new page mount immediately.
-- Drop the y-translate exit; keep only a fast 180ms opacity fade-in on enter (no exit animation).
-- This alone removes the perceived freeze.
+### 4. Spacing & rhythm
+- Add ~20% more vertical padding to hero and section blocks (`pt-32 md:pt-48` already good; bump section gaps from `py-20` → `py-28` where dense).
+- Tighten max-content widths on lede paragraphs (`max-w-2xl` → `max-w-xl`) so type doesn't sprawl at smaller sizes.
 
-### 2. Update `src/router.tsx`
-- Add `defaultPreload: "intent"` and `defaultPreloadDelay: 50` so route code is fetched on hover/touchstart, before the click.
-- Add `defaultPendingMs: 100` so transitions feel instant for cached routes.
+### 5. Nav (`Nav.tsx`)
+- Logo text from `text-base md:text-lg` → `text-sm md:text-base`.
+- CTA pill: reduce shadow intensity, keep size.
 
-### 3. Add a top pending bar in `src/components/site/__root.tsx` area
-- New `src/components/site/RouteProgress.tsx`: a thin 2px electric-color bar at top that animates while `useRouterState({ select: s => s.isLoading })` is true. Mount it in `__root.tsx` next to `ScrollProgress`.
-- Gives instant visual confirmation the click registered.
-
-### 4. Scroll-to-top on route change
-- Add `scrollRestoration: true` to the router config so navigating to a new page resets scroll (currently new pages can render mid-scroll, which feels broken on top of the slow fade).
-
-### 5. Tap feedback
-- In `src/components/site/Nav.tsx`, add `active:scale-95 transition-transform` to nav links and the "Book Free Trial" CTA so the click visibly acknowledges itself even before the route resolves.
+### 6. What stays
+- Layout, sections, content, animations, forms, pricing — untouched.
+- Helvetica Now Display font stack — already correct, no change.
+- Logo, nav structure, page count, routes — untouched.
 
 ## Files touched
 
-- `src/components/site/PageTransition.tsx` — simplify animation, remove `mode="wait"`
-- `src/router.tsx` — preload + scroll restoration + pending timing
-- `src/components/site/RouteProgress.tsx` — new file, thin pending bar
-- `src/routes/__root.tsx` — mount `<RouteProgress />`
-- `src/components/site/Nav.tsx` — add `active:` tap states
+- `src/styles.css` — color tokens, gradients, shadows, button intensity
+- `src/routes/index.tsx` — hero + section sizes/weights
+- `src/components/site/PageHeader.tsx` — page hero scale
+- `src/routes/about.tsx`, `programs.tsx`, `trainers.tsx`, `membership.tsx`, `gallery.tsx`, `contact.tsx` — headline size/weight pass
+- `src/components/site/Nav.tsx` — logo text scale, CTA shadow
 
 ## Out of scope
-
-- No content/copy changes
-- No backend, data-fetching, or route-structure changes
-- No design-token changes
+- No new pages, no copy changes, no animation rewrites, no logo swap (PDF doesn't supply a new mark to install).
+- SEO/canonical work from prior turns stays as-is.
