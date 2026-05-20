@@ -190,13 +190,13 @@ function Contact() {
                 <Field label="Email" name="email" required type="email" inputMode="email" autoComplete="email" value={values.email} onChange={(v) => update("email", v)} error={errors.email} disabled={loading} />
                 <div>
                   <label className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Interest</label>
-                  <select disabled={loading} value={values.interest} onChange={(e) => update("interest", e.target.value)} className="mt-2 w-full min-h-[48px] bg-transparent border border-border rounded-sm px-4 py-3.5 text-base md:text-sm focus:outline-none focus:border-electric transition disabled:opacity-60">
+                  <select disabled={loading} value={values.interest} onChange={(e) => update("interest", e.target.value)} className="mt-2 w-full min-h-[48px] bg-foreground/[0.04] border border-foreground/25 hover:border-foreground/40 rounded-md px-4 py-3.5 text-base md:text-sm focus:outline-none focus:border-electric focus:bg-foreground/[0.06] transition disabled:opacity-60">
                     {["Free Trial", "Membership", "Personal Training", "Boxing & CrossFit", "Zumba & Aerobic", "HIIT", "Strength Training", "Other"].map((i) => <option key={i} className="bg-background">{i}</option>)}
                   </select>
                 </div>
                 <div>
                   <label className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Message</label>
-                  <textarea disabled={loading} maxLength={1000} value={values.message} onChange={(e) => update("message", e.target.value)} rows={4} className={`mt-2 w-full bg-transparent border rounded-sm px-4 py-3.5 text-base md:text-sm focus:outline-none focus:border-electric resize-none transition disabled:opacity-60 ${errors.message ? "border-destructive" : "border-border"}`} />
+                  <textarea disabled={loading} maxLength={1000} value={values.message} onChange={(e) => update("message", e.target.value)} rows={4} className={`mt-2 w-full bg-foreground/[0.04] border hover:border-foreground/40 rounded-md px-4 py-3.5 text-base md:text-sm focus:outline-none focus:border-electric focus:bg-foreground/[0.06] resize-none transition disabled:opacity-60 ${errors.message ? "border-destructive" : "border-foreground/25"}`} />
                   {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
                 </div>
                 <Magnetic strength={0.12}>
@@ -263,7 +263,7 @@ function Field({ label, name, type = "text", required, value, onChange, inputMod
     <div>
       <label className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{label}{required && " *"}</label>
       <input name={name} type={type} inputMode={inputMode} autoComplete={autoComplete} required={required} maxLength={120} value={value} disabled={disabled} onChange={(e) => onChange(e.target.value)}
-        className={`mt-2 w-full min-h-[48px] bg-transparent border rounded-sm px-4 py-3.5 text-base md:text-sm focus:outline-none focus:border-electric transition disabled:opacity-60 ${error ? "border-destructive" : "border-border"}`} />
+        className={`mt-2 w-full min-h-[48px] bg-foreground/[0.04] border hover:border-foreground/40 rounded-md px-4 py-3.5 text-base md:text-sm focus:outline-none focus:border-electric focus:bg-foreground/[0.06] transition disabled:opacity-60 ${error ? "border-destructive" : "border-foreground/25"}`} />
       {error && <p className="mt-1 text-xs text-destructive">{error}</p>}
     </div>
   );
