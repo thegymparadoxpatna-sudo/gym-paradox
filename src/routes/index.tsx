@@ -318,12 +318,12 @@ function Home() {
                     "{t.q}"
                   </blockquote>
                   <figcaption className="mt-6 pt-6 border-t border-border/60 flex items-center gap-3">
-                    <img
-                      src={t.img}
-                      alt={t.n}
-                      loading="lazy"
-                      className="h-11 w-11 rounded-full object-cover border border-electric/40"
-                    />
+                    <div
+                      aria-hidden
+                      className="h-11 w-11 shrink-0 rounded-full border border-electric/40 bg-gradient-to-br from-electric/30 to-electric/10 flex items-center justify-center font-display text-sm tracking-[-0.01em] text-foreground/90"
+                    >
+                      {t.n.split(" ").map((w) => w[0]).slice(0, 2).join("")}
+                    </div>
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
                         <span className="font-display text-base tracking-[-0.01em] truncate">{t.n}</span>
