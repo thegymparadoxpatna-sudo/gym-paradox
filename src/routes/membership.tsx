@@ -101,7 +101,7 @@ function Membership() {
       <PageHeader
         eyebrow="Membership · 2026"
         title="Choose your"
-        italic="standard."
+        italic="plan."
         lede="One membership. Full access. Every plan includes a complimentary 3-day trial — walk in, train, decide."
       />
 
