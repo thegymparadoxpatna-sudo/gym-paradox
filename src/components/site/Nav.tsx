@@ -42,7 +42,7 @@ export function Nav() {
           <img
             src="/logo-text.png"
             alt="The Gym Paradox"
-            className="h-7 md:h-9 w-auto object-contain"
+            className="h-14 md:h-18 w-auto object-contain"
           />
         </Link>
 
