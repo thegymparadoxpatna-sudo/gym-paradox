@@ -127,7 +127,7 @@ function Home() {
           </div>
           <div className="md:col-span-9">
             <Reveal>
-              <h2 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-[-0.025em] text-balance">
+              <h2 className="font-display font-medium text-3xl md:text-4xl lg:text-5xl leading-[1.15] tracking-[-0.02em] text-balance">
                 Life itself is a <em className="display-italic text-electric-gradient">paradox.</em> The things that hurt us often heal us. Growth begins where comfort ends.
               </h2>
             </Reveal>
@@ -153,7 +153,7 @@ function Home() {
           ].map((s, i) => (
             <Reveal key={s.l} delay={i * 0.08} className={i > 0 ? "md:border-l md:border-border md:pl-8" : "md:pr-4"}>
               <div>
-                <div className="font-display text-5xl md:text-7xl tracking-[-0.03em]">
+                <div className="font-display font-medium text-4xl md:text-5xl tracking-[-0.02em]">
                   <Counter to={s.n} />{s.suffix}
                 </div>
                 <div className="mt-3 h-px w-8 gradient-electric" />
@@ -170,7 +170,7 @@ function Home() {
           <div className="flex items-end justify-between mb-16">
             <div>
               <p className="eyebrow text-electric-gradient">02 — Programs</p>
-              <h2 className="mt-4 font-display text-5xl md:text-7xl leading-[0.95] tracking-[-0.03em]">Five disciplines.<br /><em className="display-italic">One standard.</em></h2>
+              <h2 className="mt-4 font-display font-medium text-3xl md:text-5xl leading-[1.05] tracking-[-0.02em]">Five disciplines.<br /><em className="display-italic">One standard.</em></h2>
             </div>
             <Link to="/programs" className="hidden md:inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground transition">
               All programs <ArrowUpRight className="h-4 w-4" />
@@ -376,7 +376,7 @@ function Home() {
           <div className="absolute inset-0 aurora opacity-50" />
           <div className="relative z-10 mx-auto h-full max-w-[1400px] px-5 md:px-10 flex flex-col justify-center items-center text-center">
             <p className="eyebrow text-electric-gradient">Open membership · 2026</p>
-            <h2 className="mt-6 font-display leading-[0.85] tracking-[-0.05em]" style={{ fontSize: "clamp(4rem, 12vw, 16rem)" }}>
+            <h2 className="mt-6 font-display font-medium leading-[0.95] tracking-[-0.03em]" style={{ fontSize: "clamp(3rem, 8vw, 10rem)" }}>
               Begin the<br /><em className="display-italic text-electric-gradient">paradox</em><span className="text-electric-gradient">.</span>
             </h2>
             <Magnetic strength={0.2}>

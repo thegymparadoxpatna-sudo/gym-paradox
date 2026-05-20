@@ -72,7 +72,7 @@ function NotFoundComponent() {
     <div className="flex min-h-screen items-center justify-center px-4 bg-background">
       <div className="text-center max-w-md">
         <p className="text-[10px] uppercase tracking-[0.3em] text-primary">404 — Lost in the paradox</p>
-        <h1 className="mt-6 font-display text-7xl">Not<em className="display-italic text-primary"> here.</em></h1>
+        <h1 className="mt-6 font-display font-medium text-5xl tracking-[-0.02em]">Not<em className="display-italic text-primary"> here.</em></h1>
         <p className="mt-4 text-sm text-muted-foreground">This page doesn't exist. Yet.</p>
         <Link to="/" className="mt-8 inline-flex rounded-full bg-primary px-6 py-3 text-[11px] uppercase tracking-[0.25em] text-primary-foreground">Return home</Link>
       </div>
