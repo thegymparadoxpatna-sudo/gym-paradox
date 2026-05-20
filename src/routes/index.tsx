@@ -118,28 +118,6 @@ function Home() {
         </div>
       </section>
 
-      {/* MARQUEE */}
-      <section className="relative border-b border-border py-8 overflow-hidden ticker-mask bg-background">
-        <div className="flex marquee whitespace-nowrap">
-          {[...Array(2)].map((_, i) => (
-            <div key={i} className="flex items-center shrink-0">
-              {[
-                { t: "Discipline is freedom", mode: "italic" },
-                { t: "Pain pays off", mode: "italic" },
-                { t: "Strength is earned", mode: "mono" },
-                { t: "The body changes slowly", mode: "italic" },
-                { t: "The mind changes forever", mode: "italic" },
-                { t: "Patna's premier club", mode: "mono" },
-              ].map((it, idx) => (
-                <span key={`${i}-${idx}`} className={`px-10 ${it.mode === "italic" ? "font-display italic text-5xl md:text-7xl opacity-70" : "font-mono uppercase tracking-[0.25em] text-xs md:text-sm opacity-50"}`}>
-                  {it.t} <span className="text-electric-gradient not-italic">·</span>
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* MANIFESTO */}
       <section className="relative py-20 md:py-32 lg:py-48 overflow-hidden">
         <div className="absolute -left-12 top-32 font-display italic text-[28vw] md:text-[20vw] text-electric/[0.04] leading-none pointer-events-none select-none">01</div>
