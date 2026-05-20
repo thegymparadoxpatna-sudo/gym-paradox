@@ -38,7 +38,13 @@ export function Nav() {
       </div>
 
       <div className="mx-auto flex h-20 md:h-[88px] max-w-[1400px] items-center justify-between px-5 md:px-10">
-        <Logo className="h-10 w-10 md:h-12 md:w-12" withText textClassName="text-sm md:text-base font-medium" />
+        <Link to="/" className="inline-flex items-center pr-2" aria-label="The Gym Paradox — Home">
+          <img
+            src="/logo-text.png"
+            alt="The Gym Paradox"
+            className="h-7 md:h-9 w-auto object-contain"
+          />
+        </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
           {NAV.slice(1, -1).map((n) => (
