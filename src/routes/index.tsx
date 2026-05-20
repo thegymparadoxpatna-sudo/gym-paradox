@@ -60,24 +60,15 @@ function Home() {
             <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-electric-gradient">Est. 2026 · Patliputra, Patna</span>
           </motion.div>
 
-          <h1 className="font-display font-medium leading-[0.95] tracking-[-0.025em] text-balance" style={{ fontSize: "clamp(2.5rem, 6.5vw, 7.5rem)" }}>
-            <motion.span
-              initial={{ y: 80 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="block"
-            >
-              Pain
-            </motion.span>
-            <motion.span
-              initial={{ y: 80 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 1.2, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
-              className="block"
-            >
-              <em className="display-italic text-electric-gradient">pays off</em><span className="text-electric-gradient">.</span>
-            </motion.span>
-          </h1>
+          <h1 className="sr-only">The Gym Paradox — Pain Pays Off</h1>
+          <motion.img
+            src="/logo-badge.png"
+            alt="The Gym Paradox — Pain Pays Off"
+            initial={{ opacity: 0, y: 40, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="w-[clamp(180px,28vw,360px)] h-auto object-contain drop-shadow-2xl"
+          />
 
           <motion.div
             initial={{ opacity: 0, y: 40 }}
