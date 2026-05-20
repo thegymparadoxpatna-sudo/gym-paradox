@@ -84,7 +84,7 @@ export function ExitIntent() {
                 <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.22em] text-electric-gradient">
                   <Sparkles className="h-3 w-3" /> Wait — one thing
                 </span>
-                <h3 className="mt-4 font-display text-3xl md:text-4xl leading-[1] tracking-[-0.03em]">
+                <h3 className="mt-4 font-display font-medium text-2xl md:text-3xl leading-[1.1] tracking-[-0.02em]">
                   Three days. <em className="display-italic text-electric-gradient">No excuses.</em>
                 </h3>
                 <p className="mt-4 text-sm text-muted-foreground">

@@ -138,7 +138,7 @@ function Contact() {
                   <Check className="h-7 w-7 text-primary-foreground" strokeWidth={2.5} />
                 </motion.div>
                 <p className="mt-6 eyebrow text-electric-gradient">Enquiry Sent</p>
-                <h2 className="mt-4 font-display text-4xl md:text-5xl tracking-[-0.03em]">Thanks {values.name || "there"}!</h2>
+                <h2 className="mt-4 font-display font-medium text-3xl md:text-4xl tracking-[-0.02em]">Thanks {values.name || "there"}!</h2>
                 <p className="mt-4 text-sm text-muted-foreground">We've received your message. Our team will reach out within 24 hours.</p>
                 <p className="mt-2 text-sm text-muted-foreground">Want a faster response? Message us on WhatsApp.</p>
                 <a

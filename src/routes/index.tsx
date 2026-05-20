@@ -195,7 +195,7 @@ function Home() {
                     <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground opacity-0 group-hover:opacity-100 transition translate-y-2 group-hover:translate-y-0 duration-500">{p.meta}</span>
                   </div>
                   <div className="flex items-end justify-between">
-                    <h3 className="font-display text-3xl md:text-5xl tracking-[-0.025em]">{p.t}</h3>
+                    <h3 className="font-display font-medium text-2xl md:text-3xl tracking-[-0.015em]">{p.t}</h3>
                     <ArrowUpRight className="h-5 w-5 opacity-0 group-hover:opacity-100 transition translate-x-[-8px] group-hover:translate-x-0 duration-500" />
                   </div>
                 </div>
@@ -218,7 +218,7 @@ function Home() {
           </Reveal>
           <div className="md:col-span-6 md:pl-6">
             <p className="eyebrow text-electric-gradient">03 — The Standard</p>
-            <h2 className="mt-4 font-display text-5xl md:text-6xl leading-[0.95] tracking-[-0.03em] text-balance">
+            <h2 className="mt-4 font-display font-medium text-3xl md:text-5xl leading-[1.05] tracking-[-0.02em] text-balance">
               Built like a club. Trained like an <em className="display-italic text-electric-gradient">athlete.</em>
             </h2>
             <p className="mt-6 text-base text-muted-foreground leading-relaxed max-w-md">
@@ -240,7 +240,7 @@ function Home() {
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
           <div className="text-center mb-16 flex flex-col items-center">
             <p className="eyebrow text-electric-gradient">04 — Voices</p>
-            <h2 className="mt-4 font-display text-5xl md:text-6xl tracking-[-0.03em]">From inside the <em className="display-italic">paradox.</em></h2>
+            <h2 className="mt-4 font-display font-medium text-3xl md:text-5xl tracking-[-0.02em]">From inside the <em className="display-italic">paradox.</em></h2>
             <p className="mt-5 text-base text-muted-foreground max-w-xl">Real stories from real members who chose discipline over comfort.</p>
             <div className="mt-7">
               <GoogleReviewsBadge variant="card" />
@@ -350,7 +350,7 @@ function Home() {
       <section className="relative py-16 md:py-24 lg:py-32 border-t border-border">
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
           <div className="flex items-end justify-between mb-10">
-            <h2 className="font-display text-4xl md:text-5xl tracking-[-0.03em]">Inside the <em className="display-italic text-electric-gradient">paradox.</em></h2>
+            <h2 className="font-display font-medium text-3xl md:text-4xl tracking-[-0.02em]">Inside the <em className="display-italic text-electric-gradient">paradox.</em></h2>
             <a href={SITE.instagram} className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground transition">
               <Instagram className="h-4 w-4" /> {SITE.instagramHandle}
             </a>

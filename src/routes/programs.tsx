@@ -71,7 +71,7 @@ function Programs() {
                 </div>
                 <div className="md:col-span-5 [direction:ltr]">
                   <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-electric-gradient">{p.n}</p>
-                  <h2 className="mt-3 font-display text-5xl md:text-6xl tracking-[-0.03em]">{p.t}</h2>
+                  <h2 className="mt-3 font-display font-medium text-3xl md:text-4xl tracking-[-0.02em]">{p.t}</h2>
                   <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">{p.d}</p>
                 </div>
               </article>
@@ -108,7 +108,7 @@ function CalculatorSection() {
     <section className="bg-ink border-y border-border py-16 md:py-24 lg:py-32">
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-electric-gradient">Tools</p>
-        <h2 className="mt-4 font-display text-5xl md:text-6xl tracking-[-0.03em]">Know your <em className="display-italic text-electric-gradient">numbers.</em></h2>
+        <h2 className="mt-4 font-display font-medium text-3xl md:text-5xl tracking-[-0.02em]">Know your <em className="display-italic text-electric-gradient">numbers.</em></h2>
         <div className="mt-12 grid md:grid-cols-2 gap-6">
           <BMI />
           <BMR />
@@ -133,7 +133,7 @@ function BMI() {
       <div className="mt-10 flex items-end justify-between border-t border-border pt-6">
         <div>
           <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Your BMI</p>
-          <p className="font-display text-6xl mt-2">{bmi.toFixed(1)}</p>
+          <p className="font-display font-medium text-4xl md:text-5xl mt-2 tracking-[-0.02em]">{bmi.toFixed(1)}</p>
         </div>
         <p className="text-[11px] uppercase tracking-[0.25em] text-primary">{cat}</p>
       </div>
@@ -165,7 +165,7 @@ function BMR() {
       <div className="mt-10 flex items-end justify-between border-t border-border pt-6">
         <div>
           <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Daily maintenance</p>
-          <p className="font-display text-6xl mt-2">{bmr}<span className="text-2xl text-muted-foreground"> kcal</span></p>
+          <p className="font-display font-medium text-4xl md:text-5xl mt-2 tracking-[-0.02em]">{bmr}<span className="text-xl text-muted-foreground"> kcal</span></p>
         </div>
         <p className="text-[11px] uppercase tracking-[0.25em] text-primary">Resting</p>
       </div>
