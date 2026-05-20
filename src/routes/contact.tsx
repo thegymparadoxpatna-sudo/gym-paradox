@@ -176,9 +176,9 @@ function Contact() {
                 <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, width: 0 }} checked={!!botcheck} onChange={(e) => setBotcheck(e.target.checked ? "1" : "")} />
                 {/* Progress */}
                 <div>
-                  <div className="flex justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground mb-2">
-                    <span>Form completion</span>
-                    <span className="text-electric-gradient">{filled} / {FIELDS.length}</span>
+                  <div className="flex items-end justify-between gap-4 mb-3">
+                    <h2 className="font-display font-bold text-3xl md:text-4xl tracking-[-0.02em] text-foreground">Submit your enquiry</h2>
+                    <span className="font-mono text-sm md:text-base font-semibold text-electric-gradient shrink-0">{filled} / {FIELDS.length}</span>
                   </div>
                   <div className="h-px bg-border overflow-hidden">
                     <motion.div animate={{ width: `${progress}%` }} transition={{ duration: 0.5, ease: [0.16,1,0.3,1] }} className="h-full gradient-electric" />
