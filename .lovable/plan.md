@@ -1,55 +1,44 @@
 ## Goal
-
-Re-align the visual system to the official Brand Identity doc and dial the entire site down: smaller display sizes, lighter weights, more whitespace. Less shouting, more premium.
-
-## Brand reference (from the PDF)
-
-- **Color:** Royal Performance Blue `#204CA1`, Pure White `#FFFFFF`, Pure Black `#000000`
-- **Typography:** Helvetica Now Display (already first in our font stack — keep)
-- **Personality:** Bold, Premium, Modern — but expressed through restraint, not size
+Fix the unreadable micro-text across the site. The brand uses 10px mono uppercase in `text-muted-foreground` everywhere — on dark backgrounds it disappears. Bump size, weight, and contrast globally so labels are actually readable.
 
 ## Changes
 
-### 1. Color tokens (`src/styles.css`)
-- Replace the vivid `oklch(0.66 0.22 256)` electric blue with the brand `#204CA1` (≈ `oklch(0.42 0.16 264)`).
-- Add a slightly brighter sibling for hover/glow only (not the base), so the brand blue stays the hero.
-- Rebuild `--grad-electric`, `--grad-aurora`, `--grad-mesh`, `--shadow-electric` around the new blue at lower opacity (drop from ~0.55 → ~0.35 shadow alpha; mesh from 0.22 → 0.14).
-- Keep background obsidian, foreground bone — those already match the brand's premium dark register.
+### 1. Trust badge row (`src/routes/index.tsx`, lines 100–110)
+Currently: `text-[10px] tracking-[0.22em] text-muted-foreground`.
+- Size: `10px → 13px` (`text-[13px]`)
+- Weight: add `font-semibold`
+- Color: `text-muted-foreground → text-foreground/90`
+- Increase the bullet dot from `h-1 w-1 → h-1.5 w-1.5` so it stays proportional.
+- Bump vertical padding `py-5 → py-6` for breathing room.
 
-### 2. Typography scale — lower the volume
-Currently hero/page headers use `text-[14vw] md:text-[8vw]` and section headings hit 7–9vw. Pull everything down ~25–30%:
-- Hero (`index.tsx`): `text-[14vw] md:text-[8vw]` → `text-[10vw] md:text-[6vw]`, weight 600 → 500, tracking `-0.045em` → `-0.03em`.
-- `PageHeader.tsx`: `text-[14vw] md:text-[8vw]` → `text-[10vw] md:text-[5.5vw]`.
-- Large section headers across pages: drop one step (e.g. `text-7xl md:text-9xl` → `text-5xl md:text-7xl`).
-- Body lede: keep size, but raise line-height for breathing room.
-- Eyebrow: keep mono micro-label (already restrained, on-brand).
+### 2. Section eyebrow (`.eyebrow` in `src/styles.css`, line 135)
+Used on every section header (Manifesto "01 — Manifesto", Programs, About, etc.) and in `PageHeader`.
+- Size: `10px → 12px`
+- Weight: `500 → 700`
+- Tracking: `0.28em → 0.24em` (tighter so bolder text doesn't sprawl)
 
-### 3. Weight & emphasis
-- Replace blanket `font-bold` / heavy display usage with `font-medium` (500) for headings, `font-semibold` (600) only for true emphasis.
-- Reduce the use of `text-electric-gradient` on every headline — keep it for one accent word per section, not whole H1s. The brand wants confidence, not glitter.
-- Soften `btn-electric` shadow (`-20px / 0.55` → `-25px / 0.30`) and remove the hover translate-Y to feel more premium-still vs. bouncy.
+This single token change lifts every eyebrow across the entire site (home, about, programs, membership, contact, gallery, PageHeader).
 
-### 4. Spacing & rhythm
-- Add ~20% more vertical padding to hero and section blocks (`pt-32 md:pt-48` already good; bump section gaps from `py-20` → `py-28` where dense).
-- Tighten max-content widths on lede paragraphs (`max-w-2xl` → `max-w-xl`) so type doesn't sprawl at smaller sizes.
+### 3. Inline eyebrow-style labels not using the `.eyebrow` class
+Several spots hardcode the same pattern (`font-mono text-[10px] uppercase tracking-[...] text-muted-foreground`) instead of using `.eyebrow`. Bump these too so they don't fall behind:
+- `index.tsx` Scroll indicator (line 95): `text-[10px] → text-[11px]`, add `font-semibold`, color `text-muted-foreground → text-foreground/70`.
+- `Footer.tsx` column headers ("Visit", "Explore", "Follow", "Join the paradox list"): `text-[10px] → text-[12px]`, add `font-semibold`, color `text-muted-foreground → text-foreground/80`.
+- `Footer.tsx` copyright line: keep size, but lift color to `text-foreground/60` (currently invisible muted).
+- `Nav.tsx` top micro-bar (LiveTicker + WhatsApp link): `text-[10px] → text-[11px]`, `font-semibold`, color to `text-foreground/70`.
+- `programs.tsx` program numbers (`01`, `02`…): already `text-[10px] text-electric-gradient` — bump to `text-[12px] font-bold`.
+- Stats labels in `index.tsx` STATS section (small labels under big numbers) — bump to `text-[12px] font-semibold` with `text-foreground/80`.
 
-### 5. Nav (`Nav.tsx`)
-- Logo text from `text-base md:text-lg` → `text-sm md:text-base`.
-- CTA pill: reduce shadow intensity, keep size.
-
-### 6. What stays
-- Layout, sections, content, animations, forms, pricing — untouched.
-- Helvetica Now Display font stack — already correct, no change.
-- Logo, nav structure, page count, routes — untouched.
+### 4. Mobile nav micro-link (`Nav.tsx` line 99, "WhatsApp · …")
+- `text-[10px] text-muted-foreground` → `text-[12px] font-semibold text-foreground/80`.
 
 ## Files touched
-
-- `src/styles.css` — color tokens, gradients, shadows, button intensity
-- `src/routes/index.tsx` — hero + section sizes/weights
-- `src/components/site/PageHeader.tsx` — page hero scale
-- `src/routes/about.tsx`, `programs.tsx`, `trainers.tsx`, `membership.tsx`, `gallery.tsx`, `contact.tsx` — headline size/weight pass
-- `src/components/site/Nav.tsx` — logo text scale, CTA shadow
+- `src/styles.css` — `.eyebrow` token
+- `src/routes/index.tsx` — trust row, scroll indicator, stat labels
+- `src/routes/programs.tsx` — program number eyebrows
+- `src/components/site/Footer.tsx` — column headers + copyright
+- `src/components/site/Nav.tsx` — top micro-bar + mobile WhatsApp link
 
 ## Out of scope
-- No new pages, no copy changes, no animation rewrites, no logo swap (PDF doesn't supply a new mark to install).
-- SEO/canonical work from prior turns stays as-is.
+- No layout/structure changes, no copy edits.
+- Section H2 headlines already render clearly — not touching them.
+- `PageHeader` titles unchanged; only the eyebrow inside it gets the global bump via `.eyebrow`.
