@@ -34,9 +34,9 @@ export function Footer() {
       <div className="relative mx-auto max-w-[1400px] px-5 md:px-10 pt-24 md:pt-32 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
-            <Logo size={72} className="mb-6" withText textClassName="text-2xl md:text-3xl" />
+            <Logo size={56} className="mb-6" withText textClassName="text-lg md:text-xl" />
             <p className="eyebrow text-electric-gradient">Begin · 2026</p>
-            <h2 className="mt-4 font-display text-5xl md:text-7xl leading-[0.9] tracking-tight">
+            <h2 className="mt-4 font-display font-medium text-4xl md:text-5xl leading-[1] tracking-[-0.02em]">
               Pain<br />
               <em className="display-italic text-electric-gradient">pays off.</em>
             </h2>
@@ -105,7 +105,7 @@ export function Footer() {
         </div>
 
         <div className="mt-20 pt-8 hairline">
-          <div className="font-display text-[18vw] md:text-[14vw] leading-[0.85] tracking-[-0.06em] text-foreground/95 select-none">
+          <div className="font-display font-medium text-[14vw] md:text-[10vw] leading-[0.9] tracking-[-0.04em] text-foreground/90 select-none">
             PARA<em className="display-italic text-electric-gradient">DOX</em>
           </div>
         </div>

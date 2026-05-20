@@ -114,7 +114,7 @@ function Membership() {
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
           <Reveal>
             <p className="eyebrow text-electric-gradient">01 — Standard Plans</p>
-            <h2 className="mt-4 font-display text-4xl md:text-6xl tracking-[-0.035em] leading-[0.95]">Standard Membership</h2>
+            <h2 className="mt-4 font-display font-medium text-3xl md:text-4xl tracking-[-0.02em] leading-[1.05]">Standard Membership</h2>
             <p className="mt-4 max-w-xl text-sm md:text-base text-muted-foreground leading-relaxed">
               Choose the duration that fits your commitment. Full access, every plan.
             </p>
@@ -130,7 +130,7 @@ function Membership() {
                   )}
                   <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">{p.label}</p>
                   <div className="mt-5 flex items-baseline gap-2">
-                    <span className="font-display text-5xl tracking-[-0.04em]">{fmt(p.price)}</span>
+                    <span className="font-display font-medium text-4xl tracking-[-0.025em]">{fmt(p.price)}</span>
                   </div>
                   <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{p.per}</p>
                   <p className="mt-4 inline-flex w-fit text-[11px] font-mono uppercase tracking-[0.18em] text-muted-foreground border border-border rounded-full px-2.5 py-1">{p.tag}</p>
@@ -160,7 +160,7 @@ function Membership() {
         <div className="mx-auto max-w-[1400px] px-5 md:px-10">
           <Reveal>
             <p className="eyebrow text-electric-gradient" style={{ filter: "brightness(1.2) saturate(1.2)", textShadow: "0 0 24px oklch(0.72 0.22 256 / 0.35)" }}>02 — Founding Member Pricing</p>
-            <h2 className="mt-4 font-display text-4xl md:text-6xl tracking-[-0.035em] leading-[0.95]">
+            <h2 className="mt-4 font-display font-medium text-3xl md:text-4xl tracking-[-0.02em] leading-[1.05]">
               First 100 Members <em className="display-italic text-electric-gradient">Exclusive</em><span className="text-electric-gradient">.</span>
             </h2>
             <p className="mt-4 max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">
@@ -178,7 +178,7 @@ function Membership() {
                   )}
                   <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-electric-gradient">{p.label}</p>
                   <div className="mt-5 flex items-baseline gap-3">
-                    <span className="font-display text-5xl tracking-[-0.04em]">{fmt(p.price)}</span>
+                    <span className="font-display font-medium text-4xl tracking-[-0.025em]">{fmt(p.price)}</span>
                     <span className="font-mono text-sm text-muted-foreground line-through">{fmt(p.original)}</span>
                   </div>
                   <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{p.per}</p>

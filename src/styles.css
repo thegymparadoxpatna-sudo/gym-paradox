@@ -57,32 +57,32 @@
   --card-foreground: oklch(0.965 0.012 85);
   --popover: oklch(0.155 0.014 250);
   --popover-foreground: oklch(0.965 0.012 85);
-  /* Vivid electric blue */
-  --electric: oklch(0.66 0.22 256);
-  --electric-deep: oklch(0.42 0.20 268);
-  --primary: oklch(0.66 0.22 256);
+  /* Royal Performance Blue — brand #204CA1 */
+  --electric: oklch(0.42 0.16 264);
+  --electric-deep: oklch(0.32 0.14 264);
+  --primary: oklch(0.42 0.16 264);
   --primary-foreground: oklch(0.99 0 0);
   --secondary: oklch(0.20 0.014 250);
   --secondary-foreground: oklch(0.965 0.012 85);
   --muted: oklch(0.18 0.012 250);
   --muted-foreground: oklch(0.66 0.018 250);
-  --accent: oklch(0.66 0.22 256);
+  --accent: oklch(0.42 0.16 264);
   --accent-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.6 0.22 27);
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(1 0 0 / 9%);
   --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.66 0.22 256);
+  --ring: oklch(0.42 0.16 264);
   --platinum: oklch(0.86 0.015 250);
   --ember: oklch(0.74 0.16 55);
 
-  --grad-electric: linear-gradient(135deg, oklch(0.72 0.22 256) 0%, oklch(0.55 0.22 264) 50%, oklch(0.32 0.18 270) 100%);
-  --grad-electric-soft: linear-gradient(135deg, oklch(0.66 0.22 256 / 0.18), oklch(0.42 0.20 268 / 0.05));
-  --grad-aurora: radial-gradient(60% 50% at 50% 40%, oklch(0.66 0.22 256 / 0.45), transparent 70%);
-  --grad-mesh: radial-gradient(40% 35% at 20% 15%, oklch(0.66 0.22 256 / 0.18), transparent 70%),
-               radial-gradient(50% 40% at 85% 80%, oklch(0.42 0.20 268 / 0.22), transparent 70%);
+  --grad-electric: linear-gradient(135deg, oklch(0.52 0.17 264) 0%, oklch(0.42 0.16 264) 50%, oklch(0.28 0.13 264) 100%);
+  --grad-electric-soft: linear-gradient(135deg, oklch(0.42 0.16 264 / 0.14), oklch(0.32 0.14 264 / 0.04));
+  --grad-aurora: radial-gradient(60% 50% at 50% 40%, oklch(0.42 0.16 264 / 0.30), transparent 70%);
+  --grad-mesh: radial-gradient(40% 35% at 20% 15%, oklch(0.42 0.16 264 / 0.12), transparent 70%),
+               radial-gradient(50% 40% at 85% 80%, oklch(0.32 0.14 264 / 0.14), transparent 70%);
   --grad-fade: linear-gradient(180deg, transparent, oklch(0.085 0.010 250));
-  --shadow-electric: 0 30px 80px -20px oklch(0.66 0.22 256 / 0.55);
+  --shadow-electric: 0 30px 80px -25px oklch(0.42 0.16 264 / 0.32);
   --shadow-elev: 0 24px 60px -25px oklch(0 0 0 / 0.7);
 }
 
@@ -99,8 +99,9 @@
   ::selection { background: var(--electric); color: var(--primary-foreground); }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
     font-feature-settings: "ss01", "cv11";
+    font-weight: 500;
   }
   /* Prevent iOS zoom on focus: inputs/selects/textareas need >= 16px on mobile */
   @media (max-width: 767px) {
@@ -166,8 +167,8 @@
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
   }
   .btn-electric:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 40px 100px -20px oklch(0.66 0.22 256 / 0.65);
+    transform: translateY(-1px);
+    box-shadow: 0 36px 90px -25px oklch(0.42 0.16 264 / 0.42);
   }
 
   .marquee { animation: marquee 60s linear infinite; }

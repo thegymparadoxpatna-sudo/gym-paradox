@@ -16,10 +16,10 @@ export function PageHeader({ eyebrow, title, italic, lede, image }: { eyebrow: s
       <div className="mx-auto max-w-[1400px] px-5 md:px-10">
         <Reveal>
           <p className="eyebrow text-electric-gradient">{eyebrow}</p>
-          <h1 className="mt-6 font-display text-[14vw] md:text-[8vw] leading-[0.9] md:leading-[0.86] tracking-[-0.035em] md:tracking-[-0.045em] text-balance">
+          <h1 className="mt-6 font-display font-medium text-[10vw] md:text-[5.5vw] leading-[0.95] md:leading-[0.9] tracking-[-0.025em] md:tracking-[-0.03em] text-balance">
             {title}{italic && <> <em className="display-italic text-electric-gradient">{italicCore}</em>{italicHasPeriod && <span className="text-electric-gradient">.</span>}</>}
           </h1>
-          {lede && <p className="mt-6 md:mt-8 max-w-2xl text-base md:text-lg text-muted-foreground leading-[1.7] md:leading-relaxed">{lede}</p>}
+          {lede && <p className="mt-6 md:mt-8 max-w-xl text-sm md:text-base text-muted-foreground leading-[1.75]">{lede}</p>}
         </Reveal>
       </div>
     </section>

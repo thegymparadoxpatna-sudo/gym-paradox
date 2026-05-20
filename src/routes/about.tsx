@@ -44,7 +44,7 @@ function About() {
               <article className="grid md:grid-cols-12 gap-6 md:gap-10 items-baseline">
                 <span className="md:col-span-2 font-mono text-[10px] uppercase tracking-[0.28em] text-electric-gradient">0{i + 1}</span>
                 <div className="md:col-span-10">
-                  <h2 className="font-display text-3xl md:text-5xl leading-[1.05] tracking-[-0.025em] text-balance">{s.h}</h2>
+                  <h2 className="font-display font-medium text-2xl md:text-3xl leading-[1.2] tracking-[-0.015em] text-balance">{s.h}</h2>
                   <p className={`mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl ${i === 0 ? "drop-cap" : ""}`}>{s.b}</p>
                 </div>
               </article>
@@ -57,7 +57,7 @@ function About() {
         <div className="absolute inset-0 gradient-mesh opacity-50 pointer-events-none" />
         <div className="absolute inset-0 aurora opacity-40 pointer-events-none" />
         <div className="relative mx-auto max-w-[1400px] px-5 md:px-10 text-center">
-          <h2 className="font-display leading-[0.85] tracking-[-0.05em]" style={{ fontSize: "clamp(4rem, 12vw, 14rem)" }}>
+          <h2 className="font-display font-medium leading-[0.95] tracking-[-0.03em]" style={{ fontSize: "clamp(3rem, 8vw, 9rem)" }}>
             Discipline<br /><em className="display-italic text-electric-gradient">is freedom</em><span className="text-electric-gradient">.</span>
           </h2>
           <Magnetic strength={0.18}>
