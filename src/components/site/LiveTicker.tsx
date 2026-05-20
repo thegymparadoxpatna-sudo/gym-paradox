@@ -16,14 +16,14 @@ export function LiveTicker() {
     return () => clearInterval(i);
   }, []);
   return (
-    <div className="hidden md:flex items-center gap-6 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+    <div className="hidden md:flex items-center gap-6 font-mono font-semibold text-[11px] uppercase tracking-[0.22em] text-white">
       <span className="inline-flex items-center gap-2">
         <span className={`relative h-1.5 w-1.5 rounded-full ${isOpen ? "bg-electric" : "bg-muted-foreground/50"}`}>
           {isOpen && <span className="absolute inset-0 rounded-full bg-electric pulse-soft" />}
         </span>
         {isOpen ? "Open now · Closes at 10 PM" : "Closed · Opens at 6 AM"}
       </span>
-      <span className="text-foreground/70">{time || "—"} · Patna</span>
+      <span className="text-white">{time || "—"} · Patna</span>
     </div>
   );
 }
