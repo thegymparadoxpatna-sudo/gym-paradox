@@ -34,7 +34,13 @@ export function Footer() {
       <div className="relative mx-auto max-w-[1400px] px-5 md:px-10 pt-24 md:pt-32 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           <div className="md:col-span-5">
-            <Logo size={56} className="mb-6" withText textClassName="text-lg md:text-xl" />
+            <Link to="/" className="inline-flex items-center mb-6" aria-label="The Gym Paradox — Home">
+              <img
+                src="/logo-text.png"
+                alt="The Gym Paradox"
+                className="h-10 md:h-12 w-auto object-contain"
+              />
+            </Link>
             <p className="eyebrow text-electric-gradient">Begin · 2026</p>
             <h2 className="mt-4 font-display font-medium text-4xl md:text-5xl leading-[1] tracking-[-0.02em]">
               Pain<br />
