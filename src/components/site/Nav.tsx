@@ -40,7 +40,7 @@ export function Nav() {
       <div className="mx-auto flex h-20 md:h-[88px] max-w-[1400px] items-center justify-between px-5 md:px-10">
         <Link to="/" className="inline-flex items-center pr-2" aria-label="The Gym Paradox — Home">
           <img
-            src="/logo-text.png"
+            src="/logo-text-white.png"
             alt="The Gym Paradox"
             className="h-14 md:h-18 w-auto object-contain"
           />

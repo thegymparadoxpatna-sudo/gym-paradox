@@ -36,7 +36,7 @@ export function Footer() {
           <div className="md:col-span-5">
             <Link to="/" className="inline-flex items-center mb-6" aria-label="The Gym Paradox — Home">
               <img
-                src="/logo-text.png"
+                src="/logo-text-white.png"
                 alt="The Gym Paradox"
                 className="h-40 md:h-48 w-auto object-contain"
               />
