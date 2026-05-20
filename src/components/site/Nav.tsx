@@ -51,7 +51,7 @@ export function Nav() {
             <Link
               key={n.to}
               to={n.to}
-              className="group relative font-mono text-[13px] uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground transition-colors active:opacity-60"
+              className="group relative font-mono text-[15px] uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground transition-colors active:opacity-60"
               activeProps={{ className: "text-foreground" }}
             >
               <span className="relative">
@@ -65,7 +65,7 @@ export function Nav() {
         <div className="flex items-center gap-3">
           <Link
             to="/contact"
-            className="hidden md:inline-flex items-center gap-2 rounded-full btn-electric px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] font-medium text-primary-foreground transition-transform active:scale-95"
+            className="hidden md:inline-flex items-center gap-2 rounded-full btn-electric px-6 py-3 font-mono text-[12px] uppercase tracking-[0.22em] font-medium text-primary-foreground transition-transform active:scale-95"
           >
             Book Free Trial <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
