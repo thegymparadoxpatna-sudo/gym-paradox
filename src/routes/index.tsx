@@ -92,17 +92,17 @@ function Home() {
           </motion.div>
         </motion.div>
 
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground pulse-soft">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 font-mono font-semibold text-[11px] uppercase tracking-[0.3em] text-foreground/70 pulse-soft">
           Scroll
         </div>
       </section>
 
       {/* TRUST ROW */}
       <section className="relative border-y border-border bg-ink/60">
-        <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-5 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="mx-auto max-w-[1400px] px-5 md:px-10 py-6 grid grid-cols-2 md:grid-cols-4 gap-4">
           {TRUST_ROW.map((t) => (
-            <p key={t} className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground text-center">
-              <span className="inline-block h-1 w-1 rounded-full bg-electric mr-2 align-middle" />
+            <p key={t} className="font-mono font-semibold text-[13px] uppercase tracking-[0.22em] text-foreground/90 text-center">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-electric mr-2 align-middle" />
               {t}
             </p>
           ))}
@@ -148,7 +148,7 @@ function Home() {
                   <Counter to={s.n} />{s.suffix}
                 </div>
                 <div className="mt-3 h-px w-8 gradient-electric" />
-                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">{s.l}</p>
+                <p className="mt-3 font-mono font-semibold text-[12px] uppercase tracking-[0.22em] text-foreground/80">{s.l}</p>
               </div>
             </Reveal>
           ))}

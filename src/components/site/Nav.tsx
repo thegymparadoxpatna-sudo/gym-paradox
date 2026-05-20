@@ -31,7 +31,7 @@ export function Nav() {
       <div className={`hidden md:block border-b transition ${scrolled ? "border-transparent h-0 overflow-hidden" : "border-border/40"}`}>
         <div className="mx-auto max-w-[1400px] px-10 h-8 flex items-center justify-between">
           <LiveTicker />
-          <a href={SITE.whatsappHref} className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground transition">
+          <a href={SITE.whatsappHref} className="font-mono font-semibold text-[11px] uppercase tracking-[0.22em] text-foreground/70 hover:text-foreground transition">
             WhatsApp · {SITE.phone}
           </a>
         </div>
@@ -96,7 +96,7 @@ export function Nav() {
             <Link to="/contact" className="mt-6 inline-flex items-center gap-2 btn-electric rounded-full px-7 py-4 font-mono text-[10px] uppercase tracking-[0.22em] text-primary-foreground transition-transform active:scale-95">
               Book Free Trial <ArrowUpRight className="h-3.5 w-3.5" />
             </Link>
-            <a href={SITE.whatsappHref} className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground py-2 min-h-[44px] inline-flex items-center">
+            <a href={SITE.whatsappHref} className="mt-4 font-mono font-semibold text-[12px] uppercase tracking-[0.22em] text-foreground/80 py-2 min-h-[44px] inline-flex items-center">
               WhatsApp · {SITE.phone}
             </a>
           </div>

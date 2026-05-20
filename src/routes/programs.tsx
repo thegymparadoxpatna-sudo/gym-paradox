@@ -70,7 +70,7 @@ function Programs() {
                   </div>
                 </div>
                 <div className="md:col-span-5 [direction:ltr]">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-electric-gradient">{p.n}</p>
+                  <p className="font-mono font-bold text-[12px] uppercase tracking-[0.24em] text-electric-gradient">{p.n}</p>
                   <h2 className="mt-3 font-display font-medium text-3xl md:text-4xl tracking-[-0.02em]">{p.t}</h2>
                   <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">{p.d}</p>
                 </div>

@@ -48,7 +48,7 @@ export function Footer() {
             </p>
 
             <form onSubmit={onSubmit} className="mt-10 max-w-md">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground mb-3">Join the paradox list</p>
+              <p className="font-mono font-semibold text-[12px] uppercase tracking-[0.22em] text-foreground/80 mb-3">Join the paradox list</p>
               {done ? (
                 <p className="text-sm text-electric-gradient">Welcome. Watch your inbox.</p>
               ) : (
@@ -77,7 +77,7 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground mb-5">Visit</p>
+            <p className="font-mono font-semibold text-[12px] uppercase tracking-[0.22em] text-foreground/80 mb-5">Visit</p>
             <p className="text-sm leading-relaxed">{SITE.address}</p>
             <p className="text-sm text-muted-foreground mt-4">{SITE.hours}</p>
             <a href={SITE.phoneHref} className="block text-sm mt-4 py-1.5 min-h-[24px] hover:text-electric-gradient transition">{SITE.phone}</a>
@@ -85,7 +85,7 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-2">
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground mb-5">Explore</p>
+            <p className="font-mono font-semibold text-[12px] uppercase tracking-[0.22em] text-foreground/80 mb-5">Explore</p>
             <ul className="space-y-2.5">
               {NAV.map((n) => (
                 <li key={n.to}>
@@ -98,7 +98,7 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-2">
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground mb-5">Follow</p>
+            <p className="font-mono font-semibold text-[12px] uppercase tracking-[0.22em] text-foreground/80 mb-5">Follow</p>
             <a href={SITE.instagram} className="inline-flex items-center gap-2 text-sm hover:text-electric-gradient transition">
               <Instagram className="h-4 w-4" /> {SITE.instagramHandle}
             </a>
@@ -106,7 +106,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 pt-8 hairline flex flex-col md:flex-row justify-between gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+        <div className="mt-20 pt-8 hairline flex flex-col md:flex-row justify-between gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-foreground/60">
           <span>© {new Date().getFullYear()} The Gym Paradox · Patna</span>
         </div>
       </div>
