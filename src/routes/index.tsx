@@ -61,14 +61,27 @@ function Home() {
           </motion.div>
 
           <h1 className="sr-only">The Gym Paradox — Pain Pays Off</h1>
-          <motion.img
-            src="/logo-badge.png"
-            alt="The Gym Paradox — Pain Pays Off"
+          <motion.div
             initial={{ opacity: 0, y: 40, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-[clamp(180px,28vw,360px)] h-auto object-contain drop-shadow-2xl"
-          />
+            className="relative w-[clamp(180px,28vw,360px)] aspect-square"
+          >
+            <div
+              aria-hidden
+              className="absolute inset-0 -m-[12%] rounded-full pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(circle, oklch(0.42 0.16 264 / 0.55) 0%, oklch(0.15 0.04 264 / 0.35) 45%, transparent 70%)",
+                filter: "blur(28px)",
+              }}
+            />
+            <img
+              src="/logo-badge.png"
+              alt="The Gym Paradox — Pain Pays Off"
+              className="relative h-full w-full object-contain drop-shadow-2xl"
+            />
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 40 }}
