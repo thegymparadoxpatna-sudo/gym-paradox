@@ -368,7 +368,7 @@ function Home() {
           <div className="relative z-10 mx-auto h-full max-w-[1400px] px-5 md:px-10 flex flex-col justify-center items-center text-center">
             <p className="eyebrow text-electric-gradient">Open membership · 2026</p>
             <h2 className="mt-6 font-display font-medium leading-[0.95] tracking-[-0.03em]" style={{ fontSize: "clamp(3rem, 8vw, 10rem)" }}>
-              Begin the<br /><em className="display-italic text-electric-gradient">paradox</em><span className="text-electric-gradient">.</span>
+              Enter the<br /><em className="display-italic text-electric-gradient">paradox</em><span className="text-electric-gradient">.</span>
             </h2>
             <Magnetic strength={0.2}>
               <Link to="/contact" className="mt-12 inline-flex items-center gap-2 btn-electric rounded-full px-9 py-5 font-mono text-[10px] uppercase tracking-[0.22em] text-primary-foreground">
