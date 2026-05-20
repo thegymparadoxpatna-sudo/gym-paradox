@@ -106,13 +106,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 pt-8 hairline">
-          <div className="font-display font-medium text-[14vw] md:text-[10vw] leading-[0.9] tracking-[-0.04em] text-foreground/90 select-none">
-            PARA<em className="display-italic text-electric-gradient">DOX</em>
-          </div>
-        </div>
-
-        <div className="mt-8 flex flex-col md:flex-row justify-between gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+        <div className="mt-20 pt-8 hairline flex flex-col md:flex-row justify-between gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
           <span>© {new Date().getFullYear()} The Gym Paradox · Patna</span>
         </div>
       </div>
