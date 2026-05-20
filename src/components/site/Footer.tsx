@@ -42,11 +42,7 @@ export function Footer() {
               />
             </Link>
             <p className="eyebrow text-electric-gradient">Begin · 2026</p>
-            <h2 className="mt-4 font-display font-medium text-4xl md:text-5xl leading-[1] tracking-[-0.02em]">
-              Pain<br />
-              <em className="display-italic text-electric-gradient">pays off.</em>
-            </h2>
-            <p className="mt-8 max-w-md text-sm text-muted-foreground leading-relaxed">
+            <p className="mt-6 max-w-md text-sm text-muted-foreground leading-relaxed">
               A premium fitness destination in the heart of Patliputra, Patna.
               Built for those who believe discipline is freedom.
             </p>
@@ -118,7 +114,6 @@ export function Footer() {
 
         <div className="mt-8 flex flex-col md:flex-row justify-between gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
           <span>© {new Date().getFullYear()} The Gym Paradox · Patna</span>
-          <span>Pain pays off.</span>
         </div>
       </div>
     </footer>
