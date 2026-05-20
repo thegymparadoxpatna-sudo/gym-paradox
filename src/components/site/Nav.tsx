@@ -31,7 +31,7 @@ export function Nav() {
       <div className={`hidden md:block border-b transition ${scrolled ? "border-transparent h-0 overflow-hidden" : "border-border/40"}`}>
         <div className="mx-auto max-w-[1400px] px-10 h-8 flex items-center justify-between">
           <LiveTicker />
-          <a href={SITE.whatsappHref} className="font-mono font-semibold text-[11px] uppercase tracking-[0.22em] text-foreground/70 hover:text-foreground transition">
+          <a href={SITE.whatsappHref} className="font-mono font-semibold text-[11px] uppercase tracking-[0.22em] text-white hover:text-white/80 transition">
             WhatsApp · {SITE.phone}
           </a>
         </div>
