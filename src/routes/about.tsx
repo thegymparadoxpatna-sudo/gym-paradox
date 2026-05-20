@@ -41,8 +41,11 @@ function About() {
             { h: "We are building an environment.", b: "At The Gym Paradox, we are not building just another gym. We are building a place that reminds you every single day that you are capable of becoming stronger than your excuses, fears, doubts, and limitations." },
           ].map((s, i) => (
             <Reveal key={i} delay={i * 0.05}>
-              <article className="grid md:grid-cols-12 gap-6 md:gap-10 items-baseline">
-                <span className="md:col-span-2 font-mono font-bold text-[15px] uppercase tracking-[0.22em] text-electric-gradient">0{i + 1}</span>
+              <article className="grid md:grid-cols-12 gap-6 md:gap-10 items-start">
+                <div className="md:col-span-2 flex items-center gap-4">
+                  <span aria-hidden className="h-3 w-3 rounded-full bg-electric shadow-[0_0_24px_2px_oklch(0.62_0.22_264/0.55)] shrink-0" />
+                  <span className="font-mono font-bold text-2xl md:text-3xl tracking-[-0.01em] text-electric-gradient leading-none">0{i + 1}</span>
+                </div>
                 <div className="md:col-span-10">
                   <h2 className="font-display font-medium text-2xl md:text-3xl leading-[1.2] tracking-[-0.015em] text-balance">{s.h}</h2>
                   <p className={`mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl ${i === 0 ? "drop-cap" : ""}`}>{s.b}</p>
