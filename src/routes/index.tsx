@@ -132,7 +132,7 @@ function Home() {
           <div className="md:col-span-9">
             <Reveal>
               <h2 className="font-display font-medium text-3xl md:text-4xl lg:text-5xl leading-[1.15] tracking-[-0.02em] text-balance">
-                Life itself is a <em className="display-italic text-electric-gradient">paradox.</em> The things that hurt us often heal us. Growth begins where comfort ends.
+                Life itself is a <em className="not-italic font-medium text-foreground">paradox.</em> The things that hurt us often heal us. Growth begins where comfort ends.
               </h2>
             </Reveal>
             <Reveal delay={0.15}>
