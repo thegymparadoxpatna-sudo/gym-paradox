@@ -42,7 +42,7 @@ function About() {
           ].map((s, i) => (
             <Reveal key={i} delay={i * 0.05}>
               <article className="grid md:grid-cols-12 gap-6 md:gap-10 items-baseline">
-                <span className="md:col-span-2 font-mono text-[10px] uppercase tracking-[0.28em] text-electric-gradient">0{i + 1}</span>
+                <span className="md:col-span-2 font-mono font-bold text-[15px] uppercase tracking-[0.22em] text-electric-gradient">0{i + 1}</span>
                 <div className="md:col-span-10">
                   <h2 className="font-display font-medium text-2xl md:text-3xl leading-[1.2] tracking-[-0.015em] text-balance">{s.h}</h2>
                   <p className={`mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl ${i === 0 ? "drop-cap" : ""}`}>{s.b}</p>
