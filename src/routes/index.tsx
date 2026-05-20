@@ -69,11 +69,11 @@ function Home() {
           >
             <div
               aria-hidden
-              className="absolute inset-0 -m-[8%] rounded-full pointer-events-none"
+              className="absolute inset-0 -m-[6%] rounded-full pointer-events-none"
               style={{
                 background:
-                  "radial-gradient(circle, oklch(0.96 0.02 264 / 0.85) 0%, oklch(0.85 0.05 264 / 0.55) 40%, oklch(0.6 0.1 264 / 0.2) 65%, transparent 80%)",
-                filter: "blur(12px)",
+                  "radial-gradient(circle, oklch(0.99 0.01 264 / 0.98) 0%, oklch(0.94 0.03 264 / 0.85) 35%, oklch(0.75 0.08 264 / 0.4) 60%, transparent 80%)",
+                filter: "blur(10px)",
               }}
             />
             <img
