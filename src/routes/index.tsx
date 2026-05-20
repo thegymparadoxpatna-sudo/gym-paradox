@@ -77,7 +77,7 @@ function Home() {
               }}
             />
             <img
-              src="/logo-badge.png"
+              src="/logo-badge.webp"
               alt="The Gym Paradox — Pain Pays Off"
               className="relative h-full w-full object-contain drop-shadow-2xl"
             />
