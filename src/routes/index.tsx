@@ -150,7 +150,7 @@ function Home() {
         <div className="absolute inset-0 gradient-mesh opacity-50 pointer-events-none" />
         <div className="relative mx-auto max-w-[1400px] px-5 md:px-10 py-16 md:py-24 lg:py-32 grid grid-cols-2 md:grid-cols-4 gap-y-16">
           {[
-            { n: 12, suffix: ",000", l: "Sq ft of premium space" },
+            { n: 5, suffix: ",000", l: "Sq ft of premium space" },
             { n: 5, l: "Specialised disciplines" },
             { n: 100, suffix: "%", l: "Imported equipment" },
             { n: 16, suffix: "hr", l: "Daily, all days" },
